@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "codegen": "contentful-typescript-codegen --output models/generated/contentful.d.ts"
+    "codegen": "contentful-typescript-codegen --output models/contentful/generated/contentful.d.ts"
   },
   "dependencies": {
     "@next/font": "13.1.6",
