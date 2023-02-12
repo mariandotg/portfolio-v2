@@ -9,6 +9,6 @@ export const getContentfulData = (type: string) => {
       content_type: type,
       include: 1,
     })
-    .then((response: any) => response)
+    .then((response: any) => response.items)
     .catch((error: object) => console.log(error));
 };
