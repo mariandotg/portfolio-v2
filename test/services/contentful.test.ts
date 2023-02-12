@@ -6,4 +6,10 @@ describe('Contentful service', () => {
 
     expect(response.length).toBe(6);
   });
+  it('Return correct content type', async () => {
+    const contentType = 'section';
+    const response = await getContentfulData(contentType);
+
+    expect(response[0].sys.contentType.sys.id).toBe(contentType);
+  });
 });
