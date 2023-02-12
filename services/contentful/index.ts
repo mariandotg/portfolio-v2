@@ -1,4 +1,8 @@
-export const getContentfulData = (type: string) => {
+import { ISection } from '@/models/contentful/generated/contentful';
+import { RawData } from '@/models/contentful/RawData';
+import { GetContentfulData } from '@/models/contentful/GetContentfulData';
+
+export const getContentfulData: GetContentfulData = (type: string) => {
   const contentful = require('contentful');
   const client = contentful.createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -9,6 +13,6 @@ export const getContentfulData = (type: string) => {
       content_type: type,
       include: 1,
     })
-    .then((response: any) => response.items)
+    .then((response: RawData<ISection>) => response.items)
     .catch((error: object) => console.log(error));
 };
