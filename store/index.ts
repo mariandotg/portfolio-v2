@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
+import dataReducer from './slices/data';
+
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    data: dataReducer,
+  },
   devTools: true,
 });
 
