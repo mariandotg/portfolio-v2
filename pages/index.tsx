@@ -1,17 +1,19 @@
 import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 
-import { getContentfulData } from '@/services/contentful';
 import { ISection } from '@/models/contentful/generated/contentful';
 
-import { wrapper } from '@/store';
+import { selectDataSections, wrapper } from '@/store';
+import { fetchData } from '@/store/slices/data';
+import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 interface Props {
   response: Array<ISection>;
 }
 
-const Home: NextPage<Props> = ({ response }) => {
-  console.log(response[0].fields.title);
+const Home: NextPage<Props> = () => {
+  const response = useAppSelector(selectDataSections);
+  console.log(response);
   return (
     <>
       <div>Home</div>
@@ -21,12 +23,14 @@ const Home: NextPage<Props> = ({ response }) => {
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
-    const response = await getContentfulData('section');
-
+    try {
+      await store.dispatch(fetchData({ type: 'section' })).unwrap();
+    } catch (rejectedValueOrSerializedError) {
+      console.log('error', rejectedValueOrSerializedError);
+    }
     return {
-      props: {
-        response,
-      },
+      props: {},
+      revalidate: 1,
     };
   }
 );
