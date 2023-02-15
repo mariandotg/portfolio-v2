@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
-import dataReducer from './slices/data';
+import pageContentReducer from './slices/pageContent';
 
 export const store = configureStore({
   reducer: {
-    data: dataReducer,
+    pageContent: pageContentReducer,
   },
   devTools: true,
 });
@@ -18,6 +18,6 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export type AppStore = ReturnType<typeof makeStore>;
 
-export const selectDataSections = (state) => state.data.sections;
+export const selectDataSections = (state) => state.pageContent.sections;
 
 export const wrapper = createWrapper<AppStore>(makeStore);
