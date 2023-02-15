@@ -7,13 +7,13 @@ export interface IButtonFields {
   label: string;
 
   /** Variant */
-  variant: 'primary' | 'secondary';
-
-  /** Has Url */
-  hasUrl: boolean;
+  variant: 'primary' | 'secondary' | 'tertiary';
 
   /** Url */
   url?: string | undefined;
+
+  /** Icon */
+  icon?: string | undefined;
 }
 
 export interface IButton extends Entry<IButtonFields> {
@@ -33,15 +33,18 @@ export interface IButton extends Entry<IButtonFields> {
   };
 }
 
-export interface IContactFormFields {
-  /** Headline */
-  headline: string;
+export interface IConstantsFields {
+  /** Social Media */
+  socialMedia: ISocialMedia[];
 
-  /** Paragraph */
-  paragraph: string;
+  /** Headlines */
+  headlines: IHeadline[];
+
+  /** Slug */
+  slug: string;
 }
 
-export interface IContactForm extends Entry<IContactFormFields> {
+export interface IConstants extends Entry<IConstantsFields> {
   sys: {
     id: string;
     type: string;
@@ -50,7 +53,54 @@ export interface IContactForm extends Entry<IContactFormFields> {
     locale: string;
     contentType: {
       sys: {
-        id: 'contactForm';
+        id: 'constants';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
+export interface IFetchFields {
+  /** Slug */
+  slug: string;
+}
+
+export interface IFetch extends Entry<IFetchFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'fetch';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
+export interface IHeadlineFields {
+  /** Text */
+  text: string;
+
+  /** Url */
+  url?: string | undefined;
+}
+
+export interface IHeadline extends Entry<IHeadlineFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'headline';
         linkType: 'ContentType';
         type: 'Link';
       };
@@ -86,7 +136,7 @@ export interface IInput extends Entry<IInputFields> {
   };
 }
 
-export interface IJobFields {
+export interface IJobCardFields {
   /** Period */
   period: string;
 
@@ -100,7 +150,7 @@ export interface IJobFields {
   responsabilities: string;
 }
 
-export interface IJob extends Entry<IJobFields> {
+export interface IJobCard extends Entry<IJobCardFields> {
   sys: {
     id: string;
     type: string;
@@ -109,7 +159,54 @@ export interface IJob extends Entry<IJobFields> {
     locale: string;
     contentType: {
       sys: {
-        id: 'job';
+        id: 'jobCard';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
+export interface IPageFields {
+  /** Name */
+  name: string;
+
+  /** Sections */
+  sections: ISection[];
+}
+
+export interface IPage extends Entry<IPageFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'page';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
+export interface IParagraphFields {
+  /** Text */
+  text: string;
+}
+
+export interface IParagraph extends Entry<IParagraphFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'paragraph';
         linkType: 'ContentType';
         type: 'Link';
       };
@@ -118,11 +215,27 @@ export interface IJob extends Entry<IJobFields> {
 }
 
 export interface ISectionFields {
+  /** Emoji */
+  emoji?: string | undefined;
+
   /** Title */
   title: string;
 
+  /** Slug */
+  slug: string;
+
   /** Content */
-  content?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
+  content?:
+    | (
+        | IJobCard
+        | ISkillsCard
+        | IButton
+        | IHeadline
+        | IInput
+        | IParagraph
+        | IFetch
+      )[]
+    | undefined;
 }
 
 export interface ISection extends Entry<ISectionFields> {
@@ -142,15 +255,15 @@ export interface ISection extends Entry<ISectionFields> {
   };
 }
 
-export interface ISkillGroupFields {
-  /** Skill group Title */
-  skillGroupTitle: string;
+export interface ISkillsCardFields {
+  /** Title */
+  title: string;
 
   /** Skills */
   skills: string[];
 }
 
-export interface ISkillGroup extends Entry<ISkillGroupFields> {
+export interface ISkillsCard extends Entry<ISkillsCardFields> {
   sys: {
     id: string;
     type: string;
@@ -159,7 +272,35 @@ export interface ISkillGroup extends Entry<ISkillGroupFields> {
     locale: string;
     contentType: {
       sys: {
-        id: 'skillGroup';
+        id: 'skillsCard';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
+export interface ISocialMediaFields {
+  /** Url */
+  url: string;
+
+  /** Icon */
+  icon: string;
+
+  /** Alt */
+  alt: string;
+}
+
+export interface ISocialMedia extends Entry<ISocialMediaFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'socialMedia';
         linkType: 'ContentType';
         type: 'Link';
       };
@@ -169,19 +310,29 @@ export interface ISkillGroup extends Entry<ISkillGroupFields> {
 
 export type CONTENT_TYPE =
   | 'button'
-  | 'contactForm'
+  | 'constants'
+  | 'fetch'
+  | 'headline'
   | 'input'
-  | 'job'
+  | 'jobCard'
+  | 'page'
+  | 'paragraph'
   | 'section'
-  | 'skillGroup';
+  | 'skillsCard'
+  | 'socialMedia';
 
 export type IEntry =
   | IButton
-  | IContactForm
+  | IConstants
+  | IFetch
+  | IHeadline
   | IInput
-  | IJob
+  | IJobCard
+  | IPage
+  | IParagraph
   | ISection
-  | ISkillGroup;
+  | ISkillsCard
+  | ISocialMedia;
 
 export type LOCALE_CODE = 'en-US' | 'es';
 
