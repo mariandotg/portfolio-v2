@@ -1,4 +1,4 @@
-import { ISection } from '@/models/contentful/generated/contentful';
+import { IPage } from '@/models/contentful/generated/contentful';
 import { RawData } from '@/models/contentful/RawData';
 import { GetContentfulData } from '@/models/contentful/GetContentfulData';
 
@@ -13,6 +13,6 @@ export const getContentfulData: GetContentfulData = (type: string) => {
       content_type: type,
       include: 1,
     })
-    .then((response: RawData<ISection>) => response.items)
+    .then((response: RawData<IPage>) => response.items)
     .catch((error: object) => console.log(error));
 };

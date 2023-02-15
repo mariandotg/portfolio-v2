@@ -1,5 +1,5 @@
-import { ISection } from '@/models/contentful/generated/contentful';
+import { IPage } from '@/models/contentful/generated/contentful';
 
 export interface ResponseObj {
-  response: Array<ISection>;
+  response: Array<IPage>;
 }

@@ -1,3 +1,3 @@
-import { ISection } from './generated/contentful';
+import { IPage } from './generated/contentful';
 
-export type GetContentfulData = (type: string) => Promise<Array<ISection>>;
+export type GetContentfulData = (type: string) => Promise<Array<IPage>>;
