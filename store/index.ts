@@ -18,6 +18,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export type AppStore = ReturnType<typeof makeStore>;
 
-export const selectDataSections = (state) => state.pageContent.sections;
+export const selectPageContentSections = (state: RootState) =>
+  state.pageContent.sections;
 
 export const wrapper = createWrapper<AppStore>(makeStore);
