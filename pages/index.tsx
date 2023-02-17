@@ -4,7 +4,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import { ISection } from '@/models/contentful/generated/contentful';
 
 import { selectDataSections, wrapper } from '@/store';
-import { fetchData } from '@/store/slices/data';
+import { fetchPageContent } from '@/store/slices/pageContent';
 import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 interface Props {
@@ -24,7 +24,7 @@ const Home: NextPage<Props> = () => {
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     try {
-      await store.dispatch(fetchData({ type: 'section' })).unwrap();
+      await store.dispatch(fetchPageContent({ type: 'page' })).unwrap();
     } catch (rejectedValueOrSerializedError) {
       console.log('error', rejectedValueOrSerializedError);
     }
