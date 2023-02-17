@@ -11,7 +11,7 @@ export const getContentfulData: GetContentfulData = (type: string) => {
   return client
     .getEntries({
       content_type: type,
-      include: 1,
+      include: 3,
     })
     .then((response: RawData<IPage>) => response.items)
     .catch((error: object) => console.log(error));
