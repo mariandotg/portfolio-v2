@@ -5,6 +5,7 @@ export interface ActionHYDRATE extends Action {
   type: string;
   payload?: {
     pageContent: {
+      name: string;
       sections: IPageFields;
       loading: string;
       locale: string;

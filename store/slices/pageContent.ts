@@ -18,6 +18,7 @@ export const fetchPageContent = createAsyncThunk<ResponseObj, ResponseParams>(
 export const pageContent = createSlice({
   name: 'pageContent',
   initialState: {
+    name: '',
     sections: {},
     loading: false,
     locale: '',
@@ -29,7 +30,8 @@ export const pageContent = createSlice({
         state.loading = true;
       })
       .addCase(fetchPageContent.fulfilled, (state, action) => {
-        state.sections = action.payload!.response[0].fields;
+        state.name = action.payload!.response[0].fields.name;
+        state.sections = action.payload!.response[0].fields.sections;
         state.loading = false;
       })
       .addCase(fetchPageContent.rejected, (state) => {
@@ -37,6 +39,7 @@ export const pageContent = createSlice({
       })
       .addCase(HYDRATE, (state, action: ActionHYDRATE) => {
         if (!action.payload!.pageContent.sections) return state;
+        state.name = action.payload!.pageContent.name;
         state.sections = { ...action.payload!.pageContent.sections };
         state.locale = action.payload!.pageContent.locale;
         state.loading = false;
