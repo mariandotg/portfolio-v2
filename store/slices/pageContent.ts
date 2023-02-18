@@ -6,6 +6,7 @@ import { getContentfulData } from '@/services/contentful';
 import { ResponseObj } from '@/models/store/fetchData/ResponseObj';
 import { ResponseParams } from '@/models/store/fetchData/ResponseParams';
 import { ActionHYDRATE } from '@/models/store/actions/ActionHYDRATE';
+import { contentfulDataAdapter } from '@/adapters/contentfulDataAdapter';
 
 export const fetchPageContent = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageContent/fetchPageContent',
@@ -31,7 +32,7 @@ export const pageContent = createSlice({
       })
       .addCase(fetchPageContent.fulfilled, (state, action) => {
         state.name = action.payload!.response[0].fields.name;
-        state.sections = action.payload!.response[0].fields.sections;
+        state.sections = contentfulDataAdapter(action.payload!.response[0]);
         state.loading = false;
       })
       .addCase(fetchPageContent.rejected, (state) => {
