@@ -1,14 +1,11 @@
-import { IPageFields } from '@/models/contentful/generated/contentful';
 import { Action } from '@reduxjs/toolkit';
+import { PageConstants } from '../state/PageConstants';
+import { PageContent } from '../state/PageContent';
 
 export interface ActionHYDRATE extends Action {
   type: string;
   payload?: {
-    pageContent: {
-      name: string;
-      sections: IPageFields;
-      loading: string;
-      locale: string;
-    };
+    pageContent: PageContent;
+    pageConstants: PageConstants;
   };
 }
