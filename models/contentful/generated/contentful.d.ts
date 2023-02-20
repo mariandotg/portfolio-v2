@@ -75,7 +75,7 @@ export interface IInputFields {
   type?: 'textarea' | 'email' | 'text' | undefined;
 
   /** Slug */
-  slug: string;
+  slug?: string;
 }
 
 export interface IInput extends Entry<IInputFields> {
@@ -109,7 +109,7 @@ export interface IJobCardFields {
   responsabilities: string;
 
   /** Slug */
-  slug: string;
+  slug?: string;
 }
 
 export interface IJobCard extends Entry<IJobCardFields> {
@@ -160,7 +160,7 @@ export interface ISkillsCardFields {
   skills: string[];
 
   /** Slug */
-  slug: string;
+  slug?: string;
 }
 
 export interface ISkillsCard extends Entry<ISkillsCardFields> {
