@@ -1,48 +1,34 @@
-import {
-  IButtonFields,
-  IHeadlineFields,
-  IInputFields,
-  IJobCardFields,
-  ISkillsCardFields,
-} from '../../contentful/generated/contentful';
+import { Button } from '../Button';
+import { CtaContact } from '../CtaContact';
+import { CtaContactText } from '../CtaContactText';
+import { Input } from '../Input';
+import { JobCard } from '../JobCards';
+import { SkillCard } from '../SkillCard';
 
-interface FormattedContent {
-  slug?: string;
-  id: string;
+export interface AboutContent {
+  ctaDescription: string;
+  cta: Button;
 }
 
-export interface AboutContent extends FormattedContent {
-  description: string;
-  cta: IButtonFields;
-}
-
-export interface ProjectsContent extends FormattedContent {
+export interface ProjectsContent {
   projects: any;
 }
 
-export interface SkillsContent extends FormattedContent {
-  skillCards: ISkillsCardFields[];
+export interface SkillsContent {
+  skillCards: Array<SkillCard>;
 }
 
-export interface JobsContent extends FormattedContent {
-  jobCards: IJobCardFields[];
+export interface JobsContent {
+  jobCards: Array<JobCard>;
 }
 
-export interface ArticlesContent extends FormattedContent {
+export interface ArticlesContent {
   articles: any;
 }
 
-export interface ContactContent extends FormattedContent {
-  ctaContactHeadline: IHeadlineFields;
-  ctaContactParagraph: string;
-  contactForm: IInputFields[];
-  sendMail: IButtonFields;
+export interface ContactContent {
+  ctaContact: CtaContact;
+  ctaContactText: CtaContactText;
+  contactForm: Array<Input>;
+  sendMail: Button;
 }
-
-export type SectionContent =
-  | AboutContent
-  | ProjectsContent
-  | SkillsContent
-  | JobsContent
-  | ArticlesContent
-  | ContactContent;
