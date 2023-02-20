@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { getContentfulData } from '@/services/contentful';
+import contentful from '@/services/contentful';
 
 import { pageContentAdapter } from '@/adapters/pageContentAdapter';
 
@@ -16,7 +16,7 @@ import { PageContentSections } from '@/models/store/state/PageContentSections';
 export const fetchPageContent = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageContent/fetchPageContent',
   async ({ type }) => {
-    const response = await getContentfulData(type);
+    const response = await contentful.getContentfulData(type);
     return { response };
   }
 );

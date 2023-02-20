@@ -2,7 +2,7 @@ import { IPage } from '@/models/contentful/generated/contentful';
 import { RawData } from '@/models/contentful/RawData';
 import { GetContentfulData } from '@/models/contentful/GetContentfulData';
 
-export const getContentfulData: GetContentfulData = (type: string) => {
+const getContentfulData: GetContentfulData = (type: string) => {
   const contentful = require('contentful');
   const client = contentful.createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -16,3 +16,9 @@ export const getContentfulData: GetContentfulData = (type: string) => {
     .then((response: RawData<IPage>) => response.items)
     .catch((error: object) => console.log(error));
 };
+
+const contentful = {
+  getContentfulData,
+};
+
+export default contentful;
