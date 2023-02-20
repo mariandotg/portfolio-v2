@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
 import pageContentReducer from './slices/pageContent';
+import pageConstantsReducer from './slices/pageConstants';
 
 export const store = configureStore({
   reducer: {
     pageContent: pageContentReducer,
+    pageConstants: pageConstantsReducer,
   },
   devTools: true,
 });
