@@ -3,10 +3,15 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { getContentfulData } from '@/services/contentful';
 
-import { ResponseObj } from '@/models/store/fetchData/ResponseObj';
-import { ResponseParams } from '@/models/store/fetchData/ResponseParams';
+import { pageContentAdapter } from '@/adapters/pageContentAdapter';
+
+import {
+  ResponseObj,
+  ResponseParams,
+} from '@/models/store/actions/pageContent/FetchPageContent';
 import { ActionHYDRATE } from '@/models/store/actions/ActionHYDRATE';
-import { contentfulDataAdapter } from '@/adapters/contentfulDataAdapter';
+import { PageContent } from '@/models/store/state/PageContent';
+import { PageContentSections } from '@/models/store/state/PageContentSections';
 
 export const fetchPageContent = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageContent/fetchPageContent',
@@ -16,14 +21,16 @@ export const fetchPageContent = createAsyncThunk<ResponseObj, ResponseParams>(
   }
 );
 
+const initialState: PageContent = {
+  name: '',
+  sections: {} as PageContentSections,
+  loading: false,
+  locale: '',
+};
+
 export const pageContent = createSlice({
   name: 'pageContent',
-  initialState: {
-    name: '',
-    sections: {},
-    loading: false,
-    locale: '',
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -32,7 +39,9 @@ export const pageContent = createSlice({
       })
       .addCase(fetchPageContent.fulfilled, (state, action) => {
         state.name = action.payload!.response[0].fields.name;
-        state.sections = contentfulDataAdapter(action.payload!.response[0]);
+        state.sections = pageContentAdapter(
+          action.payload!.response[0].fields.sections
+        );
         state.loading = false;
       })
       .addCase(fetchPageContent.rejected, (state) => {
