@@ -1,11 +1,19 @@
-import { IPage } from '@/models/contentful/generated/contentful';
+import {
+  CONTENT_TYPE,
+  IPage,
+  LOCALE_CODE,
+} from '@/models/contentful/generated/contentful';
 
 export interface ResponseParams {
-  type: string;
+  type: CONTENT_TYPE;
+  locale: LOCALE_CODE;
 }
 
 export interface ResponseObj {
   response: Array<IPage>;
 }
 
-export type FetchPageContent = ({ type }: ResponseParams) => ResponseObj;
+export type FetchPageContent = ({
+  type,
+  locale,
+}: ResponseParams) => ResponseObj;
