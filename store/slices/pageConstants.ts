@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import contentful from '@/services/contentful';
+import { getContentfulData } from '@/services/contentful';
 
 import { ActionHYDRATE } from '@/models/store/actions/ActionHYDRATE';
 import { pageConstantsAdapter } from '@/adapters/pageConstantsAdapter';
@@ -15,8 +15,8 @@ import { IConstants } from '@/models/contentful/generated/contentful';
 
 export const fetchPageConstants = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageConstants/fetchPageConstants',
-  (params) => {
-    const response = contentful.getContentfulData<IConstants>(params);
+  async (params) => {
+    const response = await getContentfulData<IConstants>(params);
     return { response };
   }
 );
