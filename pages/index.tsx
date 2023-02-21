@@ -25,8 +25,12 @@ const Home: NextPage<Props> = () => {
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     try {
-      await store.dispatch(fetchPageContent({ type: 'page' })).unwrap();
-      await store.dispatch(fetchPageConstants({ type: 'constants' })).unwrap();
+      await store
+        .dispatch(fetchPageContent({ type: 'page', locale: 'en-US' }))
+        .unwrap();
+      await store
+        .dispatch(fetchPageConstants({ type: 'constants', locale: 'en-US' }))
+        .unwrap();
     } catch (rejectedValueOrSerializedError) {
       console.log('error', rejectedValueOrSerializedError);
     }

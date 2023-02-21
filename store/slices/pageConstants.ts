@@ -11,11 +11,12 @@ import {
 } from '@/models/store/actions/pageConstants/FetchPageConstants';
 import { PageConstants } from '@/models/store/state/PageConstants';
 import { PageConstantsConstants } from '@/models/store/state/PageConstantsConstants';
+import { IConstants } from '@/models/contentful/generated/contentful';
 
 export const fetchPageConstants = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageConstants/fetchPageConstants',
-  async ({ type }) => {
-    const response = await contentful.getContentfulData(type);
+  (params) => {
+    const response = contentful.getContentfulData<IConstants>(params);
     return { response };
   }
 );

@@ -12,11 +12,12 @@ import {
 import { ActionHYDRATE } from '@/models/store/actions/ActionHYDRATE';
 import { PageContent } from '@/models/store/state/PageContent';
 import { PageContentSections } from '@/models/store/state/PageContentSections';
+import { IPage } from '@/models/contentful/generated/contentful';
 
 export const fetchPageContent = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageContent/fetchPageContent',
-  async ({ type }) => {
-    const response = await contentful.getContentfulData(type);
+  async (params) => {
+    const response = contentful.getContentfulData<IPage>(params);
     return { response };
   }
 );
