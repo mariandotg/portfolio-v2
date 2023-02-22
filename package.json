@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@notionhq/client": "^2.2.3",
     "@reduxjs/toolkit": "^1.9.2",
     "contentful": "^9.3.2",
     "contentful-management": "^10.29.1",
