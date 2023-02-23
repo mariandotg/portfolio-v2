@@ -1,3 +1,5 @@
+import { notionDataAdapter } from '@/adapters/notionDataAdapter';
+
 const { Client } = require('@notionhq/client');
 
 const client = new Client({
@@ -13,5 +15,5 @@ export const queryNotionDatabase = async ({
     filter,
   });
 
-  return response;
+  return notionDataAdapter(response);
 };
