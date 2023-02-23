@@ -1,25 +1,13 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { getContentfulData } from '@/services/contentful';
+import { fetchPageConstants } from '../actions/pageConstants/fetchPageConstants';
+
+import { pageConstantsAdapter } from '@/adapters/pageConstantsAdapter';
 
 import { ActionHYDRATE } from '@/models/store/actions/ActionHYDRATE';
-import { pageConstantsAdapter } from '@/adapters/pageConstantsAdapter';
-import {
-  ResponseObj,
-  ResponseParams,
-} from '@/models/store/actions/pageConstants/FetchPageConstants';
 import { PageConstants } from '@/models/store/state/PageConstants';
 import { PageConstantsConstants } from '@/models/store/state/PageConstantsConstants';
-import { IConstants } from '@/models/contentful/generated/contentful';
-
-export const fetchPageConstants = createAsyncThunk<ResponseObj, ResponseParams>(
-  'pageConstants/fetchPageConstants',
-  async (params) => {
-    const response = await getContentfulData<IConstants>(params);
-    return { response };
-  }
-);
 
 const initialState: PageConstants = {
   constants: {} as PageConstantsConstants,

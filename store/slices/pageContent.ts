@@ -1,26 +1,14 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { getContentfulData } from '@/services/contentful';
+import { fetchPageContent } from '../actions/pageContent/fetchPageContent';
+import { fetchNotionContent } from '../actions/pageContent/fetchNotionContent';
 
 import { pageContentAdapter } from '@/adapters/pageContentAdapter';
 
-import {
-  ResponseObj,
-  ResponseParams,
-} from '@/models/store/actions/pageContent/FetchPageContent';
 import { ActionHYDRATE } from '@/models/store/actions/ActionHYDRATE';
 import { PageContent } from '@/models/store/state/PageContent';
 import { PageContentSections } from '@/models/store/state/PageContentSections';
-import { IPage } from '@/models/contentful/generated/contentful';
-
-export const fetchPageContent = createAsyncThunk<ResponseObj, ResponseParams>(
-  'pageContent/fetchPageContent',
-  async (params) => {
-    const response = await getContentfulData<IPage>(params);
-    return { response };
-  }
-);
 
 const initialState: PageContent = {
   name: '',
@@ -48,8 +36,21 @@ export const pageContent = createSlice({
       .addCase(fetchPageContent.rejected, (state) => {
         state.loading = false;
       })
+      .addCase(fetchNotionContent.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchNotionContent.fulfilled, (state, action) => {
+        const { section, property, response } = action.payload;
+
+        (state.sections as any)[section].content[property] = response;
+        state.loading = false;
+      })
+      .addCase(fetchNotionContent.rejected, (state) => {
+        state.loading = false;
+      })
       .addCase(HYDRATE, (state, action: ActionHYDRATE) => {
         if (!action.payload!.pageContent.sections) return state;
+
         state.name = action.payload!.pageContent.name;
         state.sections = { ...action.payload!.pageContent.sections };
         state.locale = action.payload!.pageContent.locale;
