@@ -9,6 +9,7 @@ import { useAppSelector } from '@/hooks/store/useAppSelector';
 import { fetchPageContent } from '@/store/actions/pageContent/fetchPageContent';
 import { fetchNotionContent } from '@/store/actions/pageContent/fetchNotionContent';
 import { fetchPageConstants } from '@/store/actions/pageConstants/fetchPageConstants';
+import { fetchNotionSeo } from '@/store/actions/pageSeo/fetchNotionSeo';
 
 interface Props {
   response: Array<ISection>;
@@ -59,6 +60,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
           })
         )
         .unwrap();
+      await store.dispatch(fetchNotionSeo({ slug: 'home' })).unwrap();
     } catch (rejectedValueOrSerializedError) {
       console.log('error', rejectedValueOrSerializedError);
     }
