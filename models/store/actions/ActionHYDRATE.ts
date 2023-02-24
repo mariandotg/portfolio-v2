@@ -1,11 +1,13 @@
 import { Action } from '@reduxjs/toolkit';
-import { PageConstants } from '../state/PageConstants';
 import { PageContent } from '../state/PageContent';
+import { PageConstants } from '../state/PageConstants';
+import { PageSeo } from '../state/PageSeo';
 
 export interface ActionHYDRATE extends Action {
   type: string;
   payload?: {
     pageContent: PageContent;
     pageConstants: PageConstants;
+    pageSeo: PageSeo;
   };
 }
