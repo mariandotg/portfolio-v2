@@ -6,14 +6,15 @@ import {
   ResponseObj,
   ResponseParams,
 } from '@/models/store/actions/pageSeo/FetchNotionSeo';
+import { getPageMetaData } from '@/utils/getPageMetaData';
 
 export const fetchNotionSeo = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageSeo/fetchNotionSeo',
   async (params) => {
     const response = await queryNotionDatabase({
-      databaseId: process.env.NEXT_PUBLIC_NOTION_SEO_DATABASE_ID,
+      databaseId: process.env.NEXT_PUBLIC_NOTION_BLOGS_DATABASE_ID,
       filter: {
-        property: 'Slug',
+        property: 'Path',
         formula: {
           string: {
             equals: params.slug,
@@ -21,7 +22,11 @@ export const fetchNotionSeo = createAsyncThunk<ResponseObj, ResponseParams>(
         },
       },
     });
+    
+    const formattedResponse: {
+      [key: string]: string;
+    } = getPageMetaData(response[0]);
 
-    return { response, slug: params.slug };
+    return { response: formattedResponse, slug: params.slug };
   }
 );

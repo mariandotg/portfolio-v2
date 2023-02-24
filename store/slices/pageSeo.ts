@@ -8,7 +8,7 @@ import { PageSeo } from '@/models/store/state/PageSeo';
 
 const initialState: PageSeo = {
   title: '',
-  response: [],
+  response: {},
   loading: true,
 };
 

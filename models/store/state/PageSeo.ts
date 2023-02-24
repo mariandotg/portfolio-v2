@@ -1,5 +1,7 @@
 export interface PageSeo {
   title: string;
-  response: Array<any>;
+  response: {
+    [key: string]: string;
+  };
   loading: boolean;
 }

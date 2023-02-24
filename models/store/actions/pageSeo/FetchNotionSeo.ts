@@ -3,6 +3,8 @@ export interface ResponseParams {
 }
 
 export interface ResponseObj {
-  response: Array<any>;
+  response: {
+    [key: string]: string;
+  };
   slug: string;
 }
