@@ -11,8 +11,10 @@ import { pageSeoAdapter } from '@/adapters/pageSeoAdapter';
 export const fetchNotionSeo = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageSeo/fetchNotionSeo',
   async (params) => {
+    const databaseId = process.env.NEXT_PUBLIC_NOTION_PAGES_DATABASE_ID!;
+
     const response = await queryNotionDatabase({
-      databaseId: process.env.NEXT_PUBLIC_NOTION_BLOGS_DATABASE_ID!,
+      databaseId,
       filter: {
         property: 'SeoPath',
         formula: {
