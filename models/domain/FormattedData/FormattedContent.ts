@@ -1,3 +1,4 @@
+import { Article } from '../Article';
 import { Button } from '../Button';
 import { CtaContact } from '../CtaContact';
 import { CtaContactText } from '../CtaContactText';
@@ -23,7 +24,7 @@ export interface JobsContent {
 }
 
 export interface ArticlesContent {
-  articles: any;
+  articles: Array<Article>;
 }
 
 export interface ContactContent {

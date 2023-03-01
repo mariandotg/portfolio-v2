@@ -1,7 +1,9 @@
-import { CompoundFilterObj } from '@/models/notion/Filters';
 import { notionTagsAdapter } from './notionTagsAdapter';
 
-export const articlesAdapter = (post: any[]) => {
+import { Article } from '@/models/domain/Article';
+import { CompoundFilterObj } from '@/models/notion/Filters';
+
+export const articlesAdapter = (post: any[]): Array<Article> => {
   return post.map((p) => {
     return {
       id: p.id,
