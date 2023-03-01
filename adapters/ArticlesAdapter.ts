@@ -1,4 +1,5 @@
 import { CompoundFilterObj } from '@/models/notion/Filters';
+import { notionTagsAdapter } from './notionTagsAdapter';
 
 export const articlesAdapter = (post: any[]) => {
   return post.map((p) => {
@@ -7,7 +8,7 @@ export const articlesAdapter = (post: any[]) => {
       date: p.properties.Date.date,
       image: p.properties.Image.files[0].external.url,
       name: p.properties.Name.title[0].plain_text,
-      tags: p.properties.Tags.multi_select,
+      tags: notionTagsAdapter(p.properties.Tags.multi_select),
     };
   });
 };
