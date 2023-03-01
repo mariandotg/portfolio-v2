@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   console.log(response.about);
   return (
     <>
-      <div>Home</div>
+      <div className='font-display'>Home</div>
     </>
   );
 };

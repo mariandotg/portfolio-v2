@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 
 import { wrapper } from '@/store';
 
+import '@/app/globals.css';
+
 const MyApp = ({ Component, ...rest }: AppProps) => {
   const { store, props } = wrapper.useWrappedStore(rest);
   const { pageProps } = props;
