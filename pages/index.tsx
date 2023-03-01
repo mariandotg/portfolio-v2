@@ -1,8 +1,6 @@
 import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 
-import { ISection } from '@/models/contentful/generated/contentful';
-
 import { wrapper } from '@/store';
 import { useAppSelector } from '@/hooks/store/useAppSelector';
 
@@ -11,11 +9,7 @@ import { fetchNotionContent } from '@/store/actions/pageContent/fetchNotionConte
 import { fetchPageConstants } from '@/store/actions/pageConstants/fetchPageConstants';
 import { fetchNotionSeo } from '@/store/actions/pageSeo/fetchNotionSeo';
 
-interface Props {
-  response: Array<ISection>;
-}
-
-const Home: NextPage<Props> = () => {
+const Home: NextPage = () => {
   const response = useAppSelector((state) => state.pageContent.sections);
   console.log(response.about);
   return (
