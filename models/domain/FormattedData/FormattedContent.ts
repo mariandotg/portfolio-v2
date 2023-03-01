@@ -4,6 +4,7 @@ import { CtaContact } from '../CtaContact';
 import { CtaContactText } from '../CtaContactText';
 import { Input } from '../Input';
 import { JobCard } from '../JobCards';
+import { Project } from '../Project';
 import { SkillCard } from '../SkillCard';
 
 export interface AboutContent {
@@ -12,7 +13,7 @@ export interface AboutContent {
 }
 
 export interface ProjectsContent {
-  projects: any;
+  projects: Array<Project>;
 }
 
 export interface SkillsContent {
