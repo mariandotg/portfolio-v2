@@ -1,4 +1,7 @@
 import { notionDataAdapter } from '@/adapters/notionDataAdapter';
+import { FilterObj, CompoundFilterObj } from '@/models/notion/Filters';
+import { NotionClientQueryResponse } from '@/models/notion/NotionClientQueryResponse';
+import { NotionResponse } from '@/models/notion/NotionResponse';
 
 const { Client } = require('@notionhq/client');
 
@@ -6,11 +9,16 @@ const client = new Client({
   auth: process.env.NEXT_PUBLIC_NOTION_AUTH_TOKEN,
 });
 
+interface Props {
+  databaseId: string;
+  filter: FilterObj | CompoundFilterObj;
+}
+
 export const queryNotionDatabase = async ({
   databaseId,
   filter,
-}: any): Promise<Array<any>> => {
-  const response = await client.databases.query({
+}: Props): Promise<Array<NotionResponse>> => {
+  const response: NotionClientQueryResponse = await client.databases.query({
     database_id: databaseId,
     filter,
   });
