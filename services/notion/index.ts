@@ -11,7 +11,7 @@ const client = new Client({
 
 interface Props {
   databaseId: string;
-  filter: FilterObj | CompoundFilterObj;
+  filter: FilterObj<{ [key: string]: unknown }> | CompoundFilterObj;
 }
 
 export const queryNotionDatabase = async ({
