@@ -8,7 +8,12 @@ import { PageSeo } from '@/models/store/state/PageSeo';
 
 const initialState: PageSeo = {
   title: '',
-  response: {},
+  description: '',
+  image: '',
+  id: '',
+  openGraphType: '',
+  path: '',
+  slug: '',
   loading: true,
 };
 
@@ -22,8 +27,13 @@ export const pageSeo = createSlice({
         state.loading = true;
       })
       .addCase(fetchNotionSeo.fulfilled, (state, action) => {
-        state.title = action.payload.slug;
-        state.response = action.payload.response;
+        state.title = action.payload.response.title;
+        state.description = action.payload.response.description;
+        state.image = action.payload.response.image;
+        state.id = action.payload.response.id;
+        state.openGraphType = action.payload.response.openGraphType;
+        state.path = action.payload.response.path;
+        state.slug = action.payload.response.slug;
         state.loading = false;
       })
       .addCase(fetchNotionSeo.rejected, (state) => {
@@ -32,7 +42,12 @@ export const pageSeo = createSlice({
       .addCase(HYDRATE, (state, action: ActionHYDRATE) => {
         if (!action.payload!.pageSeo) return state;
         state.title = action.payload!.pageSeo.title;
-        state.response = action.payload!.pageSeo.response;
+        state.description = action.payload!.pageSeo.description;
+        state.image = action.payload!.pageSeo.image;
+        state.id = action.payload!.pageSeo.id;
+        state.openGraphType = action.payload!.pageSeo.openGraphType;
+        state.path = action.payload!.pageSeo.path;
+        state.slug = action.payload!.pageSeo.slug;
         state.loading = false;
       });
   },
