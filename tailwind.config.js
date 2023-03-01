@@ -6,7 +6,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      display: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+      body: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+      monospace: ['IBM Plex Mono', 'system-ui', 'monospace'],
+    },
   },
   plugins: [],
 };
