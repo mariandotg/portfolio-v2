@@ -22,9 +22,7 @@ const Home: NextPage = () => {
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     try {
-      await store
-        .dispatch(fetchPageContent({ type: 'page', locale: 'es' }))
-        .unwrap();
+      await store.dispatch(fetchPageContent({ locale: 'es' })).unwrap();
       await store
         .dispatch(fetchPageConstants({ type: 'constants', locale: 'en-US' }))
         .unwrap();
