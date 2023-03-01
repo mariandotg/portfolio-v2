@@ -22,10 +22,8 @@ const Home: NextPage = () => {
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     try {
-      await store.dispatch(fetchPageContent({ locale: 'es' })).unwrap();
-      await store
-        .dispatch(fetchPageConstants({ type: 'constants', locale: 'en-US' }))
-        .unwrap();
+      await store.dispatch(fetchPageContent({ locale: 'en-US' })).unwrap();
+      await store.dispatch(fetchPageConstants({ locale: 'en-US' })).unwrap();
       await store.dispatch(fetchNotionContent()).unwrap();
       await store.dispatch(fetchNotionSeo({ slug: 'home' })).unwrap();
     } catch (rejectedValueOrSerializedError) {

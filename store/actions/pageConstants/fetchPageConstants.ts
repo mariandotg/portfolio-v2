@@ -7,11 +7,15 @@ import {
   ResponseParams,
 } from '@/models/store/actions/pageConstants/FetchPageConstants';
 import { IConstants } from '@/models/contentful/generated/contentful';
+import { Params } from '@/models/contentful/GetContentfulData';
 
 export const fetchPageConstants = createAsyncThunk<ResponseObj, ResponseParams>(
   'pageConstants/fetchPageConstants',
   async (params) => {
-    const response = await getContentfulData<IConstants>(params);
+    const contentfulParams: Params = { ...params, type: 'constants' };
+
+    const response = await getContentfulData<IConstants>(contentfulParams);
+
     return { response };
   }
 );
