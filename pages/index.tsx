@@ -27,12 +27,6 @@ const Home: NextPage<Props> = () => {
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
-    const filter = {
-      property: 'Stage',
-      select: {
-        equals: 'Published',
-      },
-    };
     try {
       await store
         .dispatch(fetchPageContent({ type: 'page', locale: 'es' }))
@@ -40,26 +34,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       await store
         .dispatch(fetchPageConstants({ type: 'constants', locale: 'en-US' }))
         .unwrap();
-      await store
-        .dispatch(
-          fetchNotionContent({
-            section: 'featuredProjects',
-            property: 'projects',
-            filter,
-            databaseId: process.env.NEXT_PUBLIC_NOTION_PROJECTS_DATABASE_ID!,
-          })
-        )
-        .unwrap();
-      await store
-        .dispatch(
-          fetchNotionContent({
-            section: 'latestArticles',
-            property: 'articles',
-            filter,
-            databaseId: process.env.NEXT_PUBLIC_NOTION_BLOGS_DATABASE_ID!,
-          })
-        )
-        .unwrap();
+      await store.dispatch(fetchNotionContent()).unwrap();
       await store.dispatch(fetchNotionSeo({ slug: 'home' })).unwrap();
     } catch (rejectedValueOrSerializedError) {
       console.log('error', rejectedValueOrSerializedError);

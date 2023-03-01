@@ -1,17 +1,6 @@
-export interface ResponseParams {
-  section: string;
-  property: string;
-  filter: {
-    property: string;
-    select: {
-      equals: string;
-    };
-  };
-  databaseId: string;
-}
+export interface ResponseParams {}
 
 export interface ResponseObj {
-  response: Array<any>;
-  section: string;
-  property: string;
+  projects: Array<any>;
+  articles: Array<any>;
 }

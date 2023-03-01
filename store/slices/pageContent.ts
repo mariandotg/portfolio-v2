@@ -40,9 +40,10 @@ export const pageContent = createSlice({
         state.loading = true;
       })
       .addCase(fetchNotionContent.fulfilled, (state, action) => {
-        const { section, property, response } = action.payload;
+        const { projects, articles } = action.payload;
 
-        (state.sections as any)[section].content[property] = response;
+        state.sections.featuredProjects.content.projects = projects;
+        state.sections.latestArticles.content.articles = articles;
         state.loading = false;
       })
       .addCase(fetchNotionContent.rejected, (state) => {
