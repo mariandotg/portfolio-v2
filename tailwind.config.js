@@ -13,12 +13,16 @@ module.exports = {
       monospace: ['IBM Plex Mono', 'system-ui', 'monospace'],
     },
     colors: {
-      dark: '#0D0D0D',
-      "dark-headlines": "#E1E1E1",
-      "dark-text": "#B1B1B1",
-      light: '#F8F8FA',
-      "light-headlines": "#0D0D0D",
-      "light-text": "#5E5E5E",
+      dark: {
+        DEFAULT: '#0D0D0D',
+        headlines: "#E1E1E1",
+        text: "#B1B1B1",
+      },
+      light: {
+        DEFAULT: '#F8F8FA',
+        headlines: "#0D0D0D",
+        text: "#5E5E5E",
+      },
       primary: '#7050D8',
     },
   },
