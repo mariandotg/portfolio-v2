@@ -7,6 +7,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    screens: {
+      mobile: '550px',
+      tablet: '834px',
+      desktop: '1024px',
+    },
     fontFamily: {
       display: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
       body: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
@@ -15,13 +20,13 @@ module.exports = {
     colors: {
       dark: {
         DEFAULT: '#0D0D0D',
-        headlines: "#E1E1E1",
-        text: "#B1B1B1",
+        headlines: '#E1E1E1',
+        text: '#B1B1B1',
       },
       light: {
         DEFAULT: '#F8F8FA',
-        headlines: "#0D0D0D",
-        text: "#5E5E5E",
+        headlines: '#0D0D0D',
+        text: '#5E5E5E',
       },
       primary: '#7050D8',
     },
