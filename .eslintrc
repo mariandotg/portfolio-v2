@@ -10,7 +10,9 @@
     "plugin:react/jsx-runtime",
     "standard",
     "next/core-web-vitals",
-    "eslint-config-prettier"
+    "eslint:recommended",
+    "eslint-config-prettier",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -20,6 +22,8 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }
