@@ -9,13 +9,15 @@ import { fetchNotionContent } from '@/store/actions/pageContent/fetchNotionConte
 import { fetchPageConstants } from '@/store/actions/pageConstants/fetchPageConstants';
 import { fetchNotionSeo } from '@/store/actions/pageSeo/fetchNotionSeo';
 
+import PageLayout from '@/components/PageLayout';
+
 const Home: NextPage = () => {
   const response = useAppSelector((state) => state.pageContent.sections);
   console.log(response.about);
   return (
-    <>
-      <div className='font-display'>Home</div>
-    </>
+    <PageLayout>
+      <section className='grid grid-cols-3 gap-y-8'>hola</section>
+    </PageLayout>
   );
 };
 
