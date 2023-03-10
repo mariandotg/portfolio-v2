@@ -8,7 +8,9 @@ import { Project } from '../Project';
 import { SkillCard } from '../SkillCard';
 
 export interface AboutContent {
-  ctaDescription: string;
+  ctaDescription: {
+    text: string;
+  };
   cta: Button;
 }
 

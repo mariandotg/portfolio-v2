@@ -2,20 +2,24 @@ import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 
 import { wrapper } from '@/store';
-import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 import { fetchPageContent } from '@/store/actions/pageContent/fetchPageContent';
 import { fetchNotionContent } from '@/store/actions/pageContent/fetchNotionContent';
 import { fetchPageConstants } from '@/store/actions/pageConstants/fetchPageConstants';
 import { fetchNotionSeo } from '@/store/actions/pageSeo/fetchNotionSeo';
 
+import PageLayout from '@/components/PageLayout';
+import About from '@/components/About';
+import FeaturedProjects from '@/components/FeaturedProjects';
+import Skills from '@/components/Skills';
+
 const Home: NextPage = () => {
-  const response = useAppSelector((state) => state.pageContent.sections);
-  console.log(response.about);
   return (
-    <>
-      <div>Home</div>
-    </>
+    <PageLayout>
+      <About />
+      <FeaturedProjects />
+      <Skills />
+    </PageLayout>
   );
 };
 
