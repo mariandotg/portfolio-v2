@@ -11,6 +11,7 @@ import { fetchNotionSeo } from '@/store/actions/pageSeo/fetchNotionSeo';
 
 import PageLayout from '@/components/PageLayout';
 import Section from '@/components/Section';
+import FeaturedProjects from '@/components/FeaturedProjects';
 
 const Home: NextPage = () => {
   const response = useAppSelector((state) => state.pageContent.sections);
@@ -30,31 +31,7 @@ const Home: NextPage = () => {
           {response.about.content.cta.label}
         </button>
       </Section>
-      <Section>
-        <h2 className='italic font-medium text-section-title font-monospace text-light-headlines'>
-          {response.featuredProjects.title}
-        </h2>
-        <div className='flex flex-col gap-y-8'>
-          {response.featuredProjects.content.projects.map((p) => {
-            return (
-              <div key={p.id} className='flex flex-col gap-y-2 text'>
-                <img
-                  src={p.image}
-                  className='object-cover w-full rounded h-[187px]'
-                />
-                <h3 className='font-medium text-title font-display text-light-headlines'>
-                  {p.name}
-                </h3>
-                <p className='text-light-text'>{p.description}</p>
-                <span className='font-medium '>{p.tags[0].name}</span>
-              </div>
-            );
-          })}
-        </div>
-        <button className='w-full px-6 py-3 italic font-bold text-center rounded bg-light-text text-light font-monospace'>
-          View more
-        </button>
-      </Section>
+      <FeaturedProjects />
     </PageLayout>
   );
 };
