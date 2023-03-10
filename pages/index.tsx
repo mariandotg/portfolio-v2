@@ -10,13 +10,14 @@ import { fetchPageConstants } from '@/store/actions/pageConstants/fetchPageConst
 import { fetchNotionSeo } from '@/store/actions/pageSeo/fetchNotionSeo';
 
 import PageLayout from '@/components/PageLayout';
+import Section from '@/components/Section';
 
 const Home: NextPage = () => {
   const response = useAppSelector((state) => state.pageContent.sections);
   console.log(response.about);
   return (
     <PageLayout>
-      <section>
+      <Section>
         <div className='flex flex-col col-span-3 gap-y-4'>
           <h1 className='flex justify-center italic font-medium text-section-title text-light-headlines font-monospace'>
             {response.about.title}
@@ -28,8 +29,8 @@ const Home: NextPage = () => {
         <button className='col-span-3 py-3 italic font-bold rounded mobile:col-span-1 mobile:col-end-4 bg-primary font-monospace text-light'>
           {response.about.content.cta.label}
         </button>
-      </section>
-      <section>
+      </Section>
+      <Section>
         <h2 className='italic font-medium text-section-title font-monospace text-light-headlines'>
           {response.featuredProjects.title}
         </h2>
@@ -53,7 +54,7 @@ const Home: NextPage = () => {
         <button className='w-full px-6 py-3 italic font-bold text-center rounded bg-light-text text-light font-monospace'>
           View more
         </button>
-      </section>
+      </Section>
     </PageLayout>
   );
 };
