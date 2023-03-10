@@ -4,6 +4,7 @@ import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 import Section from '../Section';
 import ProjectCard from '../ProjectCard';
+import Emoji from '../Emoji';
 
 const FeaturedProjects = () => {
   const data = useAppSelector(
@@ -12,6 +13,7 @@ const FeaturedProjects = () => {
 
   return (
     <Section>
+      <Emoji emoji={data.emoji} />
       <h2 className='italic font-medium text-section-title font-monospace text-light-headlines'>
         {data.title}
       </h2>
