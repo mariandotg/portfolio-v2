@@ -13,8 +13,8 @@ const FeaturedProjects = () => {
 
   return (
     <Section>
-      <Emoji emoji={data.emoji} />
-      <h2 className='italic font-medium text-section-title font-monospace text-light-headlines'>
+      <h2 className='flex italic font-medium gap-x-4 text-section-title font-monospace text-light-headlines'>
+        <Emoji emoji={data.emoji} />
         {data.title}
       </h2>
       <div className='flex flex-col gap-y-8'>

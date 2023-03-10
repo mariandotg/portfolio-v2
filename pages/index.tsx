@@ -11,12 +11,14 @@ import { fetchNotionSeo } from '@/store/actions/pageSeo/fetchNotionSeo';
 import PageLayout from '@/components/PageLayout';
 import About from '@/components/About';
 import FeaturedProjects from '@/components/FeaturedProjects';
+import Skills from '@/components/Skills';
 
 const Home: NextPage = () => {
   return (
     <PageLayout>
       <About />
       <FeaturedProjects />
+      <Skills />
     </PageLayout>
   );
 };
