@@ -7,6 +7,14 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    borderRadius: {
+      DEFAULT: '4px',
+    },
+    fontSize: {
+      DEFAULT: ['0.875rem', '1.125rem'],
+      title: ['1.25rem', '1.75rem'],
+      'section-title': ['1.25rem', '1.75rem'],
+    },
     screens: {
       mobile: '550px',
       tablet: '834px',
