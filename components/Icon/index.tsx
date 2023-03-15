@@ -50,7 +50,6 @@ const icons = new Map([
   ['node.js', Nodejs],
   ['postgresql', Postgresql],
   ['postman', Postman],
-  ['kotlin', Postman],
   ['react', Reacticon],
   ['redux', Redux],
   ['spring', Spring],
@@ -68,7 +67,7 @@ interface Props {
 }
 
 const Icon = ({ value }: Props) => {
-  const SelectedIcon = icons.get(value || 'default');
+  const SelectedIcon = icons.get(value!) || icons.get('default');
   return (
     <SelectedIcon
       viewBox='0 0 24 24'
