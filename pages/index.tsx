@@ -13,19 +13,19 @@ import About from '@/components/About';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import Skills from '@/components/Skills';
 import JobExperience from '@/components/JobExperience';
-import LatestArticles from '@/components/LatestArticles';
-import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 
 const Home: NextPage = () => {
   return (
-    <PageLayout>
-      <About />
-      <FeaturedProjects />
-      <Skills />
-      <JobExperience />
-      <LatestArticles />
-      <Contact />
-    </PageLayout>
+    <>
+      <PageLayout>
+        <About />
+        <FeaturedProjects />
+        <Skills />
+        <JobExperience />
+      </PageLayout>
+      <Footer />
+    </>
   );
 };
 
