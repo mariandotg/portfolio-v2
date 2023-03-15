@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 html {
-  @apply bg-light text-light-text dark:bg-dark dark:text-dark-text;
+  @apply font-display bg-light text-light-text dark:bg-dark dark:text-dark-text;
 }
