@@ -12,6 +12,9 @@ import PageLayout from '@/components/PageLayout';
 import About from '@/components/About';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import Skills from '@/components/Skills';
+import JobExperience from '@/components/JobExperience';
+import LatestArticles from '@/components/LatestArticles';
+import Contact from '@/components/Contact';
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +22,9 @@ const Home: NextPage = () => {
       <About />
       <FeaturedProjects />
       <Skills />
+      <JobExperience />
+      <LatestArticles />
+      <Contact />
     </PageLayout>
   );
 };
