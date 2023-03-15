@@ -14,18 +14,19 @@ import FeaturedProjects from '@/components/FeaturedProjects';
 import Skills from '@/components/Skills';
 import JobExperience from '@/components/JobExperience';
 import Footer from '@/components/Footer';
+import ContentLayout from '@/components/ContentLayout';
 
 const Home: NextPage = () => {
   return (
-    <>
-      <PageLayout>
+    <PageLayout>
+      <ContentLayout>
         <About />
         <FeaturedProjects />
         <Skills />
         <JobExperience />
-      </PageLayout>
+      </ContentLayout>
       <Footer />
-    </>
+    </PageLayout>
   );
 };
 
