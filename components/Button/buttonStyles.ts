@@ -16,5 +16,5 @@ const states = {
 export const variants = {
   primary: `bg-primary border-transparent text-light ${states.primary.hover}`,
   secondary: `bg-transparent border-primary text-primary dark:border-dark-primary dark:text-dark-primary ${states.secondary.hover}`,
-  tertiary: `bg-tertiary text-light ${states.tertiary.hover}`,
+  tertiary: `bg-tertiary border-transparent text-light ${states.tertiary.hover}`,
 };
