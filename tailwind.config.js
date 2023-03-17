@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -32,6 +36,8 @@ module.exports = {
         text: '#B1B1B1',
         'primary-hover': '#856ADE',
         'primary-pressed': '#A28DE6',
+        'tertiary-hover': '#555555',
+        'tertiary-pressed': '#7D7D7D',
       },
       light: {
         DEFAULT: '#F8F8FA',
@@ -39,9 +45,12 @@ module.exports = {
         text: '#5E5E5E',
         'primary-hover': '#6246CC',
         'primary-pressed': '#4A36B9',
+        'tertiary-hover': '#313131',
+        'tertiary-pressed': '#282828',
       },
       transparent: 'transparent',
       primary: '#7050D8',
+      tertiary: '#373737'
     },
   },
   plugins: [],
