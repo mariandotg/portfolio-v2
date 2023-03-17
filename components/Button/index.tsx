@@ -4,7 +4,7 @@ import { variants } from './buttonStyles';
 interface Props {
   onClick: () => void;
   children: ReactNode;
-  className: string;
+  className?: string;
   variant: 'primary' | 'secondary' | 'tertiary';
   url?: string;
 }
