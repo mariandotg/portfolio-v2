@@ -2,15 +2,26 @@ import { ReactNode } from 'react';
 import { variants } from './buttonStyles';
 
 interface Props {
-  onClick: () => void;
-  children: ReactNode;
-  className?: string;
   variant: 'primary' | 'secondary' | 'tertiary';
+  children: ReactNode;
+  icon?: boolean;
+  onClick?: () => void;
+  className?: string;
   url?: string;
 }
 
-const Button = ({ onClick, children, className, variant, url }: Props) => {
-  const styles = `${variants[variant]} ${className} border-2 w-full px-6 py-3 italic font-bold text-center transition rounded font-monospace`;
+const Button = ({
+  onClick,
+  children,
+  className,
+  variant,
+  url,
+  icon,
+}: Props) => {
+  const styles = `${variants[variant]} ${className} ${
+    icon ? 'p-[6px] w-fit border-[1px] rounded-[8px]' : 'px-6 py-3 w-full'
+  }
+  border-2 italic font-bold text-center whitespace-nowrap transition rounded font-monospace`;
 
   return (
     <>
