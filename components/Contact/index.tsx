@@ -10,7 +10,7 @@ const Contact = () => {
   console.log(data);
   return (
     <Section>
-      <h2 className='flex italic font-medium gap-x-4 text-section-title font-monospace text-light-headlines'>
+      <h2 className='flex italic font-medium gap-x-4 text-section-title font-monospace text-light-headlines dark:text-dark-headlines'>
         <Emoji emoji={data.emoji} />
         {data.title}
       </h2>

@@ -12,7 +12,7 @@ const LatestArticles = () => {
 
   return (
     <Section>
-      <h2 className='flex italic font-medium gap-x-4 text-section-title font-monospace text-light-headlines'>
+      <h2 className='flex italic font-medium dark:text-dark-headlines gap-x-4 text-section-title font-monospace text-light-headlines'>
         <Emoji emoji={data.emoji} />
         {data.title}
       </h2>
@@ -26,7 +26,7 @@ const LatestArticles = () => {
                   src={article.image}
                   className='object-cover w-full rounded h-[187px]'
                 />
-                <h3 className='font-medium text-title font-display text-light-headlines'>
+                <h3 className='font-medium dark:text-dark-headlines text-title font-display text-light-headlines'>
                   {article.name}
                 </h3>
               </div>

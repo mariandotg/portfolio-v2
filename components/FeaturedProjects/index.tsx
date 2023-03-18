@@ -13,7 +13,7 @@ const FeaturedProjects = () => {
 
   return (
     <Section>
-      <h2 className='flex italic font-medium gap-x-4 text-section-title font-monospace text-light-headlines'>
+      <h2 className='flex italic font-medium dark:text-dark-headlines gap-x-4 text-section-title font-monospace text-light-headlines'>
         <Emoji emoji={data.emoji} />
         {data.title}
       </h2>
@@ -22,9 +22,6 @@ const FeaturedProjects = () => {
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
-      <button className='w-full px-6 py-3 italic font-bold text-center rounded bg-light-text text-light font-monospace'>
-        View more
-      </button>
     </Section>
   );
 };

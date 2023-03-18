@@ -16,19 +16,13 @@ import JobExperience from '@/components/JobExperience';
 import Footer from '@/components/Footer';
 import ContentLayout from '@/components/ContentLayout';
 import Navbar from '@/components/Navbar';
-import Button from '@/components/Button';
-import useTheme from '@/hooks/useTheme';
 
 const Home: NextPage = () => {
-  const { toggleTheme } = useTheme();
-
   return (
     <PageLayout>
       <Navbar />
+      <div className='h-14'></div>
       <ContentLayout>
-        <Button onClick={toggleTheme} variant='primary'>
-          change theme
-        </Button>
         <About />
         <FeaturedProjects />
         <Skills />

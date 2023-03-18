@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className='w-full flex flex-col gap-y-16 px-4 py-8 border-t-[1px] border-light-text'>
       <ContentLayout>
         <div>
-          <h3 className='font-medium text-title font-display text-light-headlines'>
+          <h3 className='font-medium text-title font-display dark:text-dark-headlines text-light-headlines'>
             {data.text.ctaEmail.text}
           </h3>
           <a
@@ -22,12 +22,18 @@ const Footer = () => {
             {data.text.email.text}
           </a>
         </div>
-        <ul className='grid grid-cols-2 gap-4'>
-          <li>Home</li>
-          <li>Blog</li>
-          <li>Projects</li>
+        <ul className='grid grid-cols-2 gap-4 text-light-text dark:text-dark-text'>
+          <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
+            Home
+          </li>
+          <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
+            Blogs
+          </li>
+          <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
+            Projects
+          </li>
         </ul>
-        <ul className='flex gap-4'>
+        <ul className='flex gap-4 text-light-text dark:text-dark-text'>
           {data.social.map((social) => {
             return (
               <a
@@ -37,7 +43,10 @@ const Footer = () => {
                 rel='noopener noreferrer'
                 aria-label={social.alt}
               >
-                <Icon value={social.icon} />
+                <Icon
+                  value={social.icon.toLocaleLowerCase()}
+                  className='duration-[0ms] fill-light-text dark:fill-dark-text hover:fill-primary dark:hover:fill-primary'
+                />
               </a>
             );
           })}
