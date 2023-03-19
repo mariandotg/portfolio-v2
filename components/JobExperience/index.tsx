@@ -3,7 +3,7 @@ import React from 'react';
 import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 import Section from '../Section';
-import Emoji from '../Emoji';
+import SectionTitle from '../Section/SectionTitle';
 
 const JobExperience = () => {
   const data = useAppSelector(
@@ -12,16 +12,13 @@ const JobExperience = () => {
 
   return (
     <Section>
-      <h2 className='flex italic font-medium dark:text-dark-headlines gap-x-4 text-section-title font-monospace text-light-headlines'>
-        <Emoji emoji={data.emoji} />
-        {data.title}
-      </h2>
+      <SectionTitle>{data.title}</SectionTitle>
       <div className='flex flex-col gap-y-8 border-l-[1px] border-primary'>
         {data.content.jobCards.map((jobCard) => {
           return (
             <div
               key={jobCard.id}
-              className='relative flex flex-col pl-4 gap-y-4'
+              className='relative flex flex-col pl-4 gap-y-2'
             >
               <div className='before:content-[""] before:rounded before:w-[7px] before:h-[7px] before:bg-primary before:absolute before:top-1 before:right-auto before:-left-1'>
                 <span className='text-light-text dark:text-dark-text'>
@@ -31,7 +28,7 @@ const JobExperience = () => {
                   {jobCard.company}
                 </h4>
               </div>
-              <div className='flex flex-col gap-y-3'>
+              <div className='flex flex-col gap-y-2'>
                 <h3 className='font-medium dark:text-dark-headlines text-title font-display text-light-headlines'>
                   {jobCard.position}
                 </h3>

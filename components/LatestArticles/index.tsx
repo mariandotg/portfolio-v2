@@ -3,7 +3,7 @@ import React from 'react';
 import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 import Section from '../Section';
-import Emoji from '../Emoji';
+import SectionTitle from '../Section/SectionTitle';
 
 const LatestArticles = () => {
   const data = useAppSelector(
@@ -12,10 +12,7 @@ const LatestArticles = () => {
 
   return (
     <Section>
-      <h2 className='flex italic font-medium dark:text-dark-headlines gap-x-4 text-section-title font-monospace text-light-headlines'>
-        <Emoji emoji={data.emoji} />
-        {data.title}
-      </h2>
+      <SectionTitle>{data.title}</SectionTitle>
       <div className='w-full overflow-x-auto snap-x snap-mandatory'>
         <ul className='flex flex-row gap-4'>
           {data.content.articles.map((article) => (

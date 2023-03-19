@@ -4,7 +4,7 @@ import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 import Section from '../Section';
 import ProjectCard from '../ProjectCard';
-import Emoji from '../Emoji';
+import SectionTitle from '../Section/SectionTitle';
 
 const FeaturedProjects = () => {
   const data = useAppSelector(
@@ -13,10 +13,7 @@ const FeaturedProjects = () => {
 
   return (
     <Section>
-      <h2 className='flex italic font-medium dark:text-dark-headlines gap-x-4 text-section-title font-monospace text-light-headlines'>
-        <Emoji emoji={data.emoji} />
-        {data.title}
-      </h2>
+      <SectionTitle>{data.title}</SectionTitle>
       <div className='flex flex-col gap-y-8'>
         {data.content.projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
