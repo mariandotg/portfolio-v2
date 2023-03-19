@@ -7,7 +7,7 @@ const Footer = () => {
   const data = useAppSelector((state) => state.pageConstants.constants);
   console.log(data);
   return (
-    <footer className='w-full flex flex-col gap-y-16 px-4 py-8 border-t-[1px] border-light-text'>
+    <footer className='w-full flex flex-col gap-y-16 px-4 py-8 border-t-[1px] border-primary'>
       <ContentLayout>
         <div>
           <h3 className='font-medium text-title font-display dark:text-dark-headlines text-light-headlines'>
