@@ -1,8 +1,8 @@
-import { CONTENT_TYPE, LOCALE_CODE } from './generated/contentful';
+import { CONTENT_TYPE } from './generated/contentful';
 
 export interface Params {
   type: CONTENT_TYPE;
-  locale: LOCALE_CODE;
+  locale: string;
 }
 
 export type GetContentfulData = <T>({

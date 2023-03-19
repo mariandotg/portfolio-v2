@@ -34,20 +34,21 @@ const Home: NextPage = () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) => async () => {
-    try {
-      await store.dispatch(fetchPageContent({ locale: 'en-US' })).unwrap();
-      await store.dispatch(fetchPageConstants({ locale: 'en-US' })).unwrap();
-      await store.dispatch(fetchNotionContent()).unwrap();
-      await store.dispatch(fetchNotionSeo({ slug: 'home' })).unwrap();
-    } catch (rejectedValueOrSerializedError) {
-      console.log('error', rejectedValueOrSerializedError);
+  (store) =>
+    async ({ locale }) => {
+      try {
+        await store.dispatch(fetchPageContent({ locale: locale! })).unwrap();
+        await store.dispatch(fetchPageConstants({ locale: locale! })).unwrap();
+        await store.dispatch(fetchNotionContent()).unwrap();
+        await store.dispatch(fetchNotionSeo({ slug: 'home' })).unwrap();
+      } catch (rejectedValueOrSerializedError) {
+        console.log('error', rejectedValueOrSerializedError);
+      }
+      return {
+        props: {},
+        revalidate: 1,
+      };
     }
-    return {
-      props: {},
-      revalidate: 1,
-    };
-  }
 );
 
 export default Home;
