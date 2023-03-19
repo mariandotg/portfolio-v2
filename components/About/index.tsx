@@ -7,7 +7,6 @@ import Button from '../Button';
 
 const About = () => {
   const data = useAppSelector((state) => state.pageContent.sections.about);
-  const constants = useAppSelector((state) => state.pageConstants.constants);
 
   return (
     <Section>
@@ -16,12 +15,17 @@ const About = () => {
           {data.title}
         </h1>
         <p className='font-display text text-light-text dark:text-dark-text'>
-          {data.content.ctaDescription.text}
+          {data.content.description.text}
         </p>
       </div>
       <div className='flex flex-col gap-4 tablet:flex-row'>
-        <Button variant='secondary'>Download my cv</Button>
-        <Button variant='primary' url={constants.text.email.url}>
+        <Button
+          variant={data.content.secondaryCta.variant}
+          url={data.content.secondaryCta.url}
+        >
+          {data.content.secondaryCta.label}
+        </Button>
+        <Button variant={data.content.cta.variant} url={data.content.cta.url}>
           {data.content.cta.label}
         </Button>
       </div>
