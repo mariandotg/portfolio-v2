@@ -1,5 +1,6 @@
 import { useAppSelector } from '@/hooks/store/useAppSelector';
 import React from 'react';
+import { MdArrowOutward } from 'react-icons/md';
 import ContentLayout from '../ContentLayout';
 import Icon from '../Icon';
 
@@ -17,9 +18,10 @@ const Footer = () => {
             href={data.text.email.url}
             target='_blank'
             rel='noopener noreferrer'
-            className='font-medium underline text-title font-display text-primary'
+            className='flex relative w-fit before:content-[""] before:h-[1px] before:w-full before:left-0 before:bottom-1 before:absolute before:bg-primary items-center font-medium gap-x-1 text-title font-display text-primary'
           >
             {data.text.email.text}
+            <MdArrowOutward />
           </a>
         </div>
         <ul className='grid grid-cols-2 gap-4 text-light-text dark:text-dark-text'>
