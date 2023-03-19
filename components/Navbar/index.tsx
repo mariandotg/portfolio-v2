@@ -1,19 +1,22 @@
 import React from 'react';
 import Button from '../Button';
 import { SiLinkedin } from 'react-icons/si';
-import { MdLightMode, MdDarkMode, MdMenu } from 'react-icons/md';
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import useTheme from '@/hooks/useTheme';
+import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const constants = useAppSelector((state) => state.pageConstants.constants);
 
   return (
-    <nav className='fixed top-0 flex justify-between w-full px-4 py-3'>
-      <Button variant='secondary' icon>
-        <MdMenu className='duration-[0ms] w-[18px] h-[18px] fill-primary' />
-      </Button>
-      <div className='flex gap-x-2'>
-        <Button variant='secondary' icon>
+    <nav className='border-b-[1px] border-primary bg-light/80 z-[9999] dark:bg-dark/70 backdrop-saturate-200 fixed top-0 flex justify-center w-full px-4 py-3 backdrop-blur'>
+      <div className='flex w-screen tablet:max-w-[800px] justify-between gap-16'>
+        <Button
+          variant='secondary'
+          url={constants.social.find((pre) => pre.alt === 'Linkedin')?.url}
+          icon
+        >
           <SiLinkedin className='duration-[0ms] w-[18px] h-[18px] fill-primary' />
         </Button>
         <Button variant='secondary' onClick={toggleTheme} icon>
