@@ -6,6 +6,7 @@ import {
   SiBootstrap,
   SiContentful,
   SiCss3,
+  SiCypress,
   SiExpress,
   SiFigma,
   SiGit,
@@ -23,6 +24,9 @@ import {
   SiStyledcomponents,
   SiTailwindcss,
   SiTypescript,
+  SiNpm,
+  SiYarn,
+  SiMongodb,
 } from 'react-icons/si';
 
 interface Icons {
@@ -30,30 +34,34 @@ interface Icons {
 }
 
 const icons: Icons = {
-  javascript: SiJavascript,
-  adobeillustrator: SiAdobeillustrator,
-  adobephotoshop: SiAdobephotoshop,
+  es6: SiJavascript,
+  'adobe illustrator': SiAdobeillustrator,
+  'adobe photoshop': SiAdobephotoshop,
   bootstrap: SiBootstrap,
   contentful: SiContentful,
   css3: SiCss3,
-  'express.js': SiExpress,
+  cypress: SiCypress,
+  express: SiExpress,
   figma: SiFigma,
   git: SiGit,
   html5: SiHtml5,
   java: DiJava,
   jest: SiJest,
   kotlin: SiKotlin,
+  mongodb: SiMongodb,
   'next.js': SiNextdotjs,
-  'node.js': SiNodedotjs,
+  node: SiNodedotjs,
+  npm: SiNpm,
   postgresql: SiPostgresql,
   postman: SiPostman,
   react: SiReact,
   redux: SiRedux,
-  springboot: SiSpringboot,
+  'spring boot': SiSpringboot,
   strapi: SiStrapi,
   'styled-components': SiStyledcomponents,
   tailwindcss: SiTailwindcss,
   typescript: SiTypescript,
+  yarn: SiYarn,
   default: SiReact,
 };
 
@@ -64,7 +72,7 @@ interface Props {
 
 const Icon = ({ value, className }: Props) => {
   const SelectedIcon = icons[value] || icons.default;
-  return <SelectedIcon className={className} />;
+  return <SelectedIcon className={className} stroke='currentColor' />;
 };
 
 export default Icon;

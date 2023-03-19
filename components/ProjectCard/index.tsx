@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Project } from '@/models/domain/Project';
-import Icon from '../Icon';
 import { MdArrowForward } from 'react-icons/md';
+import SkillItem from '../Skills/SkillItem';
 
 interface Props {
   project: Project;
@@ -25,13 +25,7 @@ const ProjectCard = (props: Props) => {
             {props.project.description}
           </p>
         </div>
-        <span className='flex items-center text-light-text dark:text-dark-text gap-x-2 hover:text-primary'>
-          <Icon
-            value={props.project.tags[0].name.toLocaleLowerCase()}
-            className='duration-[0ms] fill-light-text dark:fill-dark-text'
-          />
-          {props.project.tags[0].name}
-        </span>
+        <SkillItem skill={props.project.tags[0].name} />
       </div>
     </div>
   );
