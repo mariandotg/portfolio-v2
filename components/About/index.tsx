@@ -19,9 +19,12 @@ const About = () => {
           {data.content.ctaDescription.text}
         </p>
       </div>
-      <Button variant='primary' url={constants.text.email.url}>
-        {data.content.cta.label}
-      </Button>
+      <div className='flex flex-col gap-4 tablet:flex-row'>
+        <Button variant='secondary'>Download my cv</Button>
+        <Button variant='primary' url={constants.text.email.url}>
+          {data.content.cta.label}
+        </Button>
+      </div>
     </Section>
   );
 };
