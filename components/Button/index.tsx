@@ -21,7 +21,7 @@ const Button = ({
   const styles = `${variants[variant]} ${className} ${
     icon ? 'p-[6px] w-fit border-[1px] rounded-[8px]' : 'px-6 py-3 w-full'
   }
-  border-2 italic font-bold text-center whitespace-nowrap transition rounded font-monospace`;
+  border-[1px] italic font-bold text-center whitespace-nowrap transition rounded font-monospace`;
 
   return (
     <>
