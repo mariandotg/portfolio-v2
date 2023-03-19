@@ -16,7 +16,7 @@ const Skills = () => {
         {data.content.skillCards.map((skillCard, majorIndex) => {
           return (
             <div key={skillCard.id} className='flex flex-col gap-y-2'>
-              <h3 className='font-medium dark:text-dark-headlines font-display text-light-headlines'>
+              <h3 className='font-medium text-title dark:text-dark-headlines font-display text-light-headlines'>
                 {skillCard.title}
               </h3>
               <div className='flex flex-wrap gap-y-2 gap-x-4'>
