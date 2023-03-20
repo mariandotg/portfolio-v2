@@ -1,10 +1,7 @@
-import {
-  IConstants,
-  LOCALE_CODE,
-} from '@/models/contentful/generated/contentful';
+import { IConstants } from '@/models/contentful/generated/contentful';
 
 export interface ResponseParams {
-  locale: LOCALE_CODE;
+  locale: string;
 }
 
 export interface ResponseObj {

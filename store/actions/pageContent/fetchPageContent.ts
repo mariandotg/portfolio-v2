@@ -16,6 +16,6 @@ export const fetchPageContent = createAsyncThunk<ResponseObj, ResponseParams>(
 
     const response = await getContentfulData<IPage>(contentfulParams);
 
-    return { response };
+    return { response, contentfulParams };
   }
 );

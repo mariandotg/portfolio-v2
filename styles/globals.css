@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  @apply bg-light text-light-text dark:bg-dark dark:text-dark-text;
+* {
+  @apply ease-in-out duration-300
+}
+
+body {
+  @apply font-display bg-light dark:bg-dark;
 }

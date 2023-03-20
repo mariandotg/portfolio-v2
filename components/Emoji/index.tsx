@@ -25,7 +25,7 @@ interface Props {
 const Emoji = ({ emoji }: Props) => {
   const SelectedEmoji = emojis[emoji || 'default'];
 
-  return <SelectedEmoji />;
+  return <SelectedEmoji width={24} height={24} />;
 };
 
 export default Emoji;

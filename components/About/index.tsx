@@ -3,6 +3,7 @@ import React from 'react';
 import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 import Section from '../Section';
+import Button from '../Button';
 
 const About = () => {
   const data = useAppSelector((state) => state.pageContent.sections.about);
@@ -10,14 +11,24 @@ const About = () => {
   return (
     <Section>
       <div className='flex flex-col col-span-3 gap-y-4'>
-        <h1 className='flex justify-center italic font-medium text-section-title text-light-headlines font-monospace'>
+        <h1 className='flex justify-center italic font-medium text-section-title text-light-headlines dark:text-dark-headlines font-monospace'>
           {data.title}
         </h1>
-        <p className='font-display text'>{data.content.ctaDescription.text}</p>
+        <p className='font-display text text-light-text dark:text-dark-text'>
+          {data.content.description.text}
+        </p>
       </div>
-      <button className='col-span-3 py-3 italic font-bold rounded mobile:col-span-1 mobile:col-end-4 bg-primary font-monospace text-light'>
-        {data.content.cta.label}
-      </button>
+      <div className='flex flex-col gap-4 tablet:flex-row'>
+        <Button
+          variant={data.content.secondaryCta.variant}
+          url={data.content.secondaryCta.url}
+        >
+          {data.content.secondaryCta.label}
+        </Button>
+        <Button variant={data.content.cta.variant} url={data.content.cta.url}>
+          {data.content.cta.label}
+        </Button>
+      </div>
     </Section>
   );
 };

@@ -1,9 +1,10 @@
-import { IPage, LOCALE_CODE } from '@/models/contentful/generated/contentful';
+import { IPage } from '@/models/contentful/generated/contentful';
 
 export interface ResponseParams {
-  locale: LOCALE_CODE;
+  locale: string;
 }
 
 export interface ResponseObj {
   response: Array<IPage>;
+  contentfulParams: ResponseParams;
 }

@@ -32,6 +32,7 @@ export const pageContent = createSlice({
           action.payload!.response[0].fields.sections
         );
         state.loading = false;
+        state.locale = action.payload!.contentfulParams.locale;
       })
       .addCase(fetchPageContent.rejected, (state) => {
         state.loading = false;
