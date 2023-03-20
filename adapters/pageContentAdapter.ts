@@ -12,19 +12,19 @@ export function pageContentAdapter(data: Array<ISection>): PageContentSections {
       const { slug, ...contentFields } = contentObj.fields;
 
       if ('content' in contentFields) {
-        const content = contentFields.content.reduce<
-          Array<JobCard | SkillCard | Input>
+        const content = contentFields!.content!.reduce<
+          Partial<Array<JobCard | SkillCard | Input | any>>
         >((acc, content) => {
-          const { slug, ...fields } = content?.fields;
-          const id = content?.sys.id;
+          const { slug, ...fields } = content!.fields;
+          const id = content!.sys.id;
 
           return [...acc, { ...fields, id }];
         }, []);
 
-        return { ...acc, [slug]: content };
+        return { ...acc, [slug!]: content };
       }
 
-      return { ...acc, [slug]: contentFields };
+      return { ...acc, [slug!]: contentFields };
     }, {});
 
     const fields = { ...sectionFields, content };
