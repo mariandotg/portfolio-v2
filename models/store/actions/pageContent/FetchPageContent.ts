@@ -6,4 +6,5 @@ export interface ResponseParams {
 
 export interface ResponseObj {
   response: Array<IPage>;
+  contentfulParams: ResponseParams;
 }
