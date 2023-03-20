@@ -1,4 +1,4 @@
 import { IPage } from '../contentful/generated/contentful';
-import { FormattedData } from '../domain/FormattedData/FormattedData';
+import { PageContentSections } from '../store/state/PageContentSections';
 
-export type ContentfulDataAdapter = (data: IPage) => FormattedData;
+export type ContentfulDataAdapter = (data: IPage) => PageContentSections;
