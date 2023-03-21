@@ -14,6 +14,19 @@ module.exports = {
     borderRadius: {
       DEFAULT: '4px',
     },
+    animation: {
+      'animate-image': 'fade-in 1s ease-out',
+    },
+    keyframes: {
+      'fade-in': {
+        from: {
+          opacity: '0',
+        },
+        to: {
+          opacity: '1',
+        },
+      }
+    },
     fontSize: {
       DEFAULT: ['0.875rem', '1.125rem'],
       title: ['1.25rem', '1.75rem'],
