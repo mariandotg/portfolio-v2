@@ -24,7 +24,7 @@ const Footer = () => {
             <MdArrowOutward />
           </a>
         </div>
-        <ul className='grid grid-cols-2 gap-4 text-light-text dark:text-dark-text'>
+        {/* <ul className='grid grid-cols-2 gap-4 text-light-text dark:text-dark-text'>
           <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
             Home
           </li>
@@ -34,7 +34,7 @@ const Footer = () => {
           <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
             Projects
           </li>
-        </ul>
+  </ul> */}
         <ul className='flex gap-4 text-light-text dark:text-dark-text'>
           {data.social.map((social) => {
             return (

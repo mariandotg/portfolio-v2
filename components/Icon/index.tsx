@@ -27,6 +27,8 @@ import {
   SiNpm,
   SiYarn,
   SiMongodb,
+  SiGithub,
+  SiLinkedin,
 } from 'react-icons/si';
 
 interface Icons {
@@ -44,10 +46,12 @@ const icons: Icons = {
   express: SiExpress,
   figma: SiFigma,
   git: SiGit,
+  github: SiGithub,
   html5: SiHtml5,
   java: DiJava,
   jest: SiJest,
   kotlin: SiKotlin,
+  linkedin: SiLinkedin,
   mongodb: SiMongodb,
   'next.js': SiNextdotjs,
   node: SiNodedotjs,

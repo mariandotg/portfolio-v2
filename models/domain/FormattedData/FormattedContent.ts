@@ -20,6 +20,9 @@ export interface ProjectsContent {
 }
 
 export interface SkillsContent {
+  skillsDescription: {
+    text: string;
+  };
   skillCards: Array<SkillCard>;
 }
 

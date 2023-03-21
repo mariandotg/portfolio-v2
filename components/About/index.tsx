@@ -18,14 +18,19 @@ const About = () => {
           {data.content.description.text}
         </p>
       </div>
-      <div className='flex flex-col gap-4 tablet:flex-row'>
+      <div className='flex flex-col gap-4 tablet:col-start-2 tablet:gap-8 tablet:col-span-2 tablet:grid tablet:grid-cols-2'>
         <Button
           variant={data.content.secondaryCta.variant}
           url={data.content.secondaryCta.url}
+          className='tablet:col-span-1'
         >
           {data.content.secondaryCta.label}
         </Button>
-        <Button variant={data.content.cta.variant} url={data.content.cta.url}>
+        <Button
+          variant={data.content.cta.variant}
+          url={data.content.cta.url}
+          className='tablet:col-span-1'
+        >
           {data.content.cta.label}
         </Button>
       </div>

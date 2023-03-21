@@ -14,7 +14,7 @@ const FeaturedProjects = () => {
   return (
     <Section>
       <SectionTitle>{data.title}</SectionTitle>
-      <div className='flex flex-col gap-y-8'>
+      <div className='flex flex-col gap-y-8 tablet:grid tablet:col-span-3 tablet:gap-8 tablet:grid-cols-3'>
         {data.content.projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
