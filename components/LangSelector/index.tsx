@@ -60,7 +60,7 @@ const LangSelector = () => {
       </Button>
       <div className='relative w-full text-light-headlines dark:text-dark-headlines'>
         {isOpen && (
-          <ul className='absolute transition-transform top-2 z-20 text-right w-full rounded bg-light dark:bg-dark border-[1px] border-primary'>
+          <ul className='absolute top-2 z-20 text-right w-full rounded bg-light dark:bg-dark border-[1px] border-primary'>
             {langsList.map((item, index) => {
               return (
                 <li
@@ -69,8 +69,8 @@ const LangSelector = () => {
                   tabIndex={0}
                   className={`${
                     item.value === data.locale
-                      ? 'cursor-not-allowed dark:text-dark-tertiary-pressed text-light-tertiary-pressed'
-                      : 'cursor-pointer dark:hover:text-dark-primary-hover hover:text-light-primary-hover'
+                      ? 'cursor-not-allowed text-dark-tertiary-pressed'
+                      : 'cursor-pointer text-light-headlines dark:text-dark-headlines dark:hover:text-dark-primary-hover hover:text-light-primary-hover'
                   } flex items-center px-2 py-1 w-fill`}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && item.value !== data.locale)
