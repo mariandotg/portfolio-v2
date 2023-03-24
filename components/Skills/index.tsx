@@ -5,6 +5,7 @@ import { useAppSelector } from '@/hooks/store/useAppSelector';
 import Section from '../Section';
 import SectionTitle from '../Section/SectionTitle';
 import SkillItem from './SkillItem';
+import Icon from '../Icon';
 
 const Skills = () => {
   const data = useAppSelector((state) => state.pageContent.sections.skills);
@@ -22,7 +23,8 @@ const Skills = () => {
               key={skillCard.id}
               className='flex flex-col gap-y-2 tablet:col-span-1'
             >
-              <h3 className='font-medium text-title dark:text-dark-headlines font-display text-light-headlines'>
+              <h3 className='flex items-center font-medium gap-x-2 text-title dark:text-dark-headlines font-display text-light-headlines'>
+                <Icon value={skillCard.title.toLocaleLowerCase()} />
                 {skillCard.title}
               </h3>
               <div className='flex flex-wrap gap-y-2 gap-x-4'>

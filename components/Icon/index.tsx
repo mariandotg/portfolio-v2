@@ -1,4 +1,5 @@
 import { DiJava } from 'react-icons/di';
+import { MdBuild, MdCode, MdOutlineScience, MdSettings } from 'react-icons/md';
 import {
   SiJavascript,
   SiAdobeillustrator,
@@ -66,6 +67,10 @@ const icons: Icons = {
   tailwindcss: SiTailwindcss,
   typescript: SiTypescript,
   yarn: SiYarn,
+  'front end': MdCode,
+  'back end': MdSettings,
+  testing: MdOutlineScience,
+  'other tools': MdBuild,
   default: SiReact,
 };
 
