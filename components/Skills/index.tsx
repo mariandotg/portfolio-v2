@@ -24,7 +24,10 @@ const Skills = () => {
               className='flex flex-col gap-y-2 tablet:col-span-1'
             >
               <h3 className='flex items-center font-medium gap-x-2 text-title dark:text-dark-headlines font-display text-light-headlines'>
-                <Icon value={skillCard.title.toLocaleLowerCase()} />
+                <Icon
+                  value={skillCard.title.toLocaleLowerCase()}
+                  className='duration-[0ms] dark:text-dark-headlines text-light-headlines'
+                />
                 {skillCard.title}
               </h3>
               <div className='flex flex-wrap gap-y-2 gap-x-4'>

@@ -8,14 +8,14 @@ import SectionTitle from '../Section/SectionTitle';
 import { Project } from '@/models/domain/Project';
 
 const FeaturedProjects = () => {
-  const [currentProject, setCurrentProject] = useState<Project | undefined>(
-    undefined
-  );
-  const [isAnimating, setIsAnimating] = useState(false);
-
   const data = useAppSelector(
     (state) => state.pageContent.sections.featuredProjects
   );
+
+  const [currentProject, setCurrentProject] = useState<Project>(
+    data.content.projects[0]
+  );
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleImageLoad = () => {
     setIsAnimating(false);
@@ -29,6 +29,7 @@ const FeaturedProjects = () => {
           <ProjectCard
             key={project.id}
             project={project}
+            currentProject={currentProject}
             onHover={(project) => setCurrentProject(project)}
             animate={(opt) => setIsAnimating(opt)}
           />
