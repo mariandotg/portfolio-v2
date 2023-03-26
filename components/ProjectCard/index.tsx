@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { Project } from '@/models/domain/Project';
 import { MdArrowForward } from 'react-icons/md';
 import SkillItem from '../Skills/SkillItem';
+import { Tag } from '@/models/domain/Tag';
 
 interface Props {
   project: Project;
   currentProject: Project;
   onHover: (project: Project) => void;
-  animate: (opt: boolean) => void;
+  // animate: (opt: boolean) => void;
 }
 
 const ProjectCard = (props: Props) => {
@@ -16,11 +17,43 @@ const ProjectCard = (props: Props) => {
     props.project.id === props.currentProject.id
   );
 
-  if (props.onHover && props.animate) {
+  /* if (props.onHover && props.animate) {
     if (hovered) {
       props.animate(true);
       props.onHover(props.project);
     }
+  } */
+  const contenedorRef = useRef<HTMLDivElement>(null);
+  const [numMaxTags, setNumMaxTags] = useState(0);
+  const [tagsMostradas, setTagsMostradas] = useState<Tag[]>([]);
+
+  useEffect(() => {
+    const contenedor = contenedorRef.current;
+    if (!contenedor) return;
+    const contenedorAncho = contenedor.getBoundingClientRect().width;
+    const tagsRefs = Array.from(contenedor.children).map(
+      (child) => child.getBoundingClientRect().width
+    );
+    let anchoActual = 0;
+    let numMaxTags = 0;
+    tagsRefs.some((tagRef) => {
+      anchoActual += tagRef;
+      numMaxTags++;
+      return anchoActual >= contenedorAncho;
+    });
+    setNumMaxTags(numMaxTags);
+  }, []);
+
+  useEffect(() => {
+    setTagsMostradas(props.project.tags.slice(0, numMaxTags));
+  }, [props.project.tags, numMaxTags]);
+
+  console.log(tagsMostradas);
+  function mostrarMasTags() {
+    const numTagsRestantes = props.project.tags.length - numMaxTags;
+    const tagsRestantes = props.project.tags.slice(numMaxTags);
+    setTagsMostradas([...tagsMostradas, ...tagsRestantes]);
+    setNumMaxTags(numMaxTags + numTagsRestantes);
   }
 
   function acortarString(str: string): string {
@@ -54,7 +87,19 @@ const ProjectCard = (props: Props) => {
             {acortarString(props.project.description)}
           </p>
         </div>
-        <SkillItem skill={props.project.tags[0].name} />
+        <div className='flex flex-row gap-x-4' ref={contenedorRef}>
+          {tagsMostradas.map((tag) => (
+            <SkillItem key={tag.id} skill={tag.name} />
+          ))}
+          {props.project.tags.length > numMaxTags && (
+            <button
+              onClick={mostrarMasTags}
+              className='dark:text-dark-headlines text-light-headlines'
+            >
+              +{props.project.tags.length - numMaxTags} más
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
