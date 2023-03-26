@@ -24,7 +24,7 @@ const FeaturedProjects = () => {
   return (
     <Section>
       <SectionTitle>{data.title}</SectionTitle>
-      <div className='flex flex-col gap-y-8 tablet:col-span-1 tablet:gap-0'>
+      <div className='flex flex-col gap-y-8 tablet:col-span-3 tablet:grid tablet:grid-cols-3 tablet:gap-0'>
         {data.content.projects.map((project) => (
           <ProjectCard
             key={project.id}
@@ -35,7 +35,7 @@ const FeaturedProjects = () => {
           />
         ))}
       </div>
-      <div className='relative hidden w-full h-full tablet:flex tablet:col-span-2 tablet:row-span-1'>
+      {/* <div className='relative hidden w-full h-full tablet:flex tablet:col-span-2 tablet:row-span-1'>
         {isAnimating && <div className='loading' />}
         <img
           src={
@@ -49,7 +49,7 @@ const FeaturedProjects = () => {
           onLoad={handleImageLoad}
           alt={currentProject ? currentProject.name : 'alt'}
         />
-      </div>
+        </div> */}
     </Section>
   );
 };

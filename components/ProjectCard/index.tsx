@@ -24,7 +24,7 @@ const ProjectCard = (props: Props) => {
   }
 
   function acortarString(str: string): string {
-    const maxLength = 47;
+    const maxLength = 27;
     if (str.length > maxLength) {
       return str.slice(0, maxLength - 3) + '...';
     }
@@ -42,7 +42,7 @@ const ProjectCard = (props: Props) => {
     >
       <img
         src={props.project.image}
-        className='object-cover w-full tablet:hidden rounded h-[187px] flex'
+        className='object-cover w-full rounded h-[187px] flex'
       />
       <div className='flex flex-col gap-4'>
         <div className='flex flex-col gap-1'>
