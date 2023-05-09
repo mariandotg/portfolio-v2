@@ -32,7 +32,7 @@ const Skills = () => {
               </h3>
               <div className='flex flex-wrap gap-y-2 gap-x-4'>
                 {skillCard.skills.map((skill, index) => {
-                  return <SkillItem key={index} skill={skill} />;
+                  return <SkillItem key={index} skill={skill} illuminate />;
                 })}
               </div>
             </div>
