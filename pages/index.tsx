@@ -21,13 +21,20 @@ const Home: NextPage = () => {
   return (
     <PageLayout>
       <Navbar />
-      <div className='h-14'></div>
-      <ContentLayout>
-        <About />
-        <FeaturedProjects />
-        <Skills />
-        <JobExperience />
-      </ContentLayout>
+      <div className='flex flex-col gap-8'>
+        <div className='relative h-64'>
+          <img
+            src='./header-web.webp'
+            className='absolute object-cover w-full h-full'
+          />
+        </div>
+        <ContentLayout>
+          <About />
+          <FeaturedProjects />
+          <Skills />
+          <JobExperience />
+        </ContentLayout>
+      </div>
       <Footer />
     </PageLayout>
   );
