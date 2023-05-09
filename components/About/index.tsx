@@ -11,9 +11,11 @@ const About = () => {
   return (
     <Section>
       <div className='flex flex-col col-span-3 gap-y-4'>
-        <h1 className='flex justify-center italic font-medium text-section-title text-light-headlines dark:text-dark-headlines font-monospace'>
-          {data.title}
-        </h1>
+        <div className='flex flex-col gap-y-2'>
+          <h1 className='flex italic font-medium text-section-title text-light-headlines dark:text-dark-headlines font-monospace'>
+            {data.title}
+          </h1>
+        </div>
         <p className='font-display text text-light-text dark:text-dark-text'>
           {data.content.description.text}
         </p>
