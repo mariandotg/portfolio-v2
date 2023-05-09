@@ -13,7 +13,7 @@ const Skills = () => {
   return (
     <Section>
       <SectionTitle>{data.title}</SectionTitle>
-      <p className='text-light-text dark:text-dark-text'>
+      <p className='text text-light-text dark:text-dark-text'>
         {data.content.skillsDescription.text}
       </p>
       <div className='flex flex-col gap-y-4 tablet:grid tablet:grid-cols-2 tablet:gap-8 tablet:col-span-2'>

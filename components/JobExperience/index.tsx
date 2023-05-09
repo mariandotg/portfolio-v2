@@ -47,7 +47,7 @@ const JobExperience = () => {
                     {jobCard.company}
                   </span>
                 </h3>
-                <p className='text-light-text dark:text-dark-text'>
+                <p className='text text-light-text dark:text-dark-text'>
                   {jobCard.responsabilities}
                 </p>
               </div>
@@ -65,7 +65,7 @@ const JobExperience = () => {
               {displayedJob.company}
             </span>
           </h3>
-          <p className='text-light-text dark:text-dark-text'>
+          <p className='text text-light-text dark:text-dark-text'>
             {displayedJob.responsabilities}
           </p>
         </div>
