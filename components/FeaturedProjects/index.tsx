@@ -15,16 +15,11 @@ const FeaturedProjects = () => {
   const [currentProject, setCurrentProject] = useState<Project>(
     data.content.projects[0]
   );
-  /* const [isAnimating, setIsAnimating] = useState(false);
-
-  const handleImageLoad = () => {
-    setIsAnimating(false);
-  }; */
 
   return (
     <Section>
       <SectionTitle>{data.title}</SectionTitle>
-      <div className='flex flex-col gap-y-8 tablet:col-span-3 tablet:grid tablet:grid-cols-3 tablet:gap-0'>
+      <div className='flex flex-col gap-y-8 tablet:col-span-1 tablet:grid tablet:grid-cols-1 tablet:gap-0'>
         {data.content.projects.map((project) => (
           <ProjectCard
             key={project.id}
@@ -35,21 +30,17 @@ const FeaturedProjects = () => {
           />
         ))}
       </div>
-      {/* <div className='relative hidden w-full h-full tablet:flex tablet:col-span-2 tablet:row-span-1'>
-        {isAnimating && <div className='loading' />}
+      <div className='relative hidden w-full h-full tablet:flex tablet:col-span-2 tablet:row-span-1'>
         <img
           src={
             currentProject
               ? currentProject?.image
               : 'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1239&q=80'
           }
-          className={`${
-            isAnimating ? 'animate-animate-image' : ''
-          } object-cover w-full rounded aspect-square`}
-          onLoad={handleImageLoad}
+          className={`absolute object-cover rounded w-full h-full aspect-square`}
           alt={currentProject ? currentProject.name : 'alt'}
         />
-        </div> */}
+      </div>
     </Section>
   );
 };
