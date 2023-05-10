@@ -7,6 +7,7 @@ import {
 } from 'react-icons/md';
 
 import useTheme from '@/hooks/useTheme';
+import useScroll from '@/hooks/useScroll';
 
 import Button from '../Button';
 import LangSelector from '../LangSelector';
@@ -14,6 +15,7 @@ import Navlink from './Navlink';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const { visible, scrollToTop } = useScroll();
 
   return (
     <nav className='border-b-[1px] border-primary bg-light/80 z-[9999] dark:bg-dark/70 backdrop-saturate-200 fixed top-0 flex justify-center w-full px-4 py-3 backdrop-blur'>
@@ -44,7 +46,12 @@ const Navbar = () => {
               <MdDarkMode className='duration-[0ms] w-[18px] h-[18px]' />
             )}
           </Button>
-          <Button variant='secondary' onClick={toggleTheme} icon disabled>
+          <Button
+            variant='secondary'
+            onClick={scrollToTop}
+            icon
+            disabled={!visible}
+          >
             <MdKeyboardArrowUp className='duration-[0ms] w-[18px] h-[18px] ' />
           </Button>
         </div>
