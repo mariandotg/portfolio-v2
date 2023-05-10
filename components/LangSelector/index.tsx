@@ -50,14 +50,14 @@ const LangSelector = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center select-none text-primary'>
+    <div className='flex flex-col justify-center select-none text text-primary'>
       <Button
         variant='secondary'
         className='flex items-center h-8 gap-2 not-italic font-medium font-body'
         onClick={handleLangChange}
         icon
       >
-        <MdLanguage />
+        <MdLanguage className='w-[18px] h-[18px]' />
         {currentLanguage!.label[data.locale]}
         {!isOpen ? <MdArrowDropDown /> : <MdArrowDropUp />}
       </Button>
