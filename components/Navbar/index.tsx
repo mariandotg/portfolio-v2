@@ -19,9 +19,9 @@ const Navbar = () => {
     <nav className='border-b-[1px] border-primary bg-light/80 z-[9999] dark:bg-dark/70 backdrop-saturate-200 fixed top-0 flex justify-center w-full px-4 py-3 backdrop-blur'>
       <div className='flex items-center w-screen tablet:max-w-[800px] justify-between gap-16'>
         <div className='items-center hidden gap-4 italic font-medium tablet:flex text font-monospace dark:text-light'>
-          <Navlink href='portfolio'>Portfolio</Navlink>
-          <Navlink href='projects'>Proyectos</Navlink>
-          <Navlink href='blog'>Blog</Navlink>
+          <Navlink href='/'>Portfolio</Navlink>
+          <Navlink href='/projects'>Proyectos</Navlink>
+          <Navlink href='/blog'>Blog</Navlink>
         </div>
         <Button variant='secondary' className='flex tablet:hidden' icon>
           <MdMenu className='duration-[0ms] w-[18px] h-[18px]' />
