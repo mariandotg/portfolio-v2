@@ -133,7 +133,7 @@ const ProjectCard = (props: Props) => {
           <SkillItem key={tag.id} skill={tag.name} />
         ))}
         {restTags !== 0 && (
-          <span className='h-[20px] w-[20px] flex justify-center items-center rounded-[50px] bg-light-text dark:bg-dark-text text-dark-headlines dark:text-light-headlines font-medium text-[12px]'>
+          <span className='h-[18px] w-[18px] flex justify-center items-center rounded-[50px] bg-light-text dark:bg-dark-text text-dark-headlines dark:text-light-headlines font-medium text-[12px]'>
             +{restTags}
           </span>
         )}
