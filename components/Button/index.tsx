@@ -22,9 +22,11 @@ const Button = ({
   disabled,
 }: Props) => {
   const styles = `${variants[variant]} ${className} ${
-    icon ? 'p-[6px] w-fit border-[1px] rounded-[8px]' : 'px-6 py-3 w-full'
-  } ${disabled ? 'opacity-30' : variants[`${variant}-hover`]}
-  border- italic font-bold text-center whitespace-nowrap transition rounded font-monospace`;
+    icon ? 'p-[6px] w-fit rounded-[8px]' : 'px-6 py-3 w-full'
+  } ${
+    disabled ? 'opacity-30 pointer-events-none' : variants[`${variant}-hover`]
+  }
+  border italic font-bold text-center whitespace-nowrap transition rounded font-monospace`;
 
   return (
     <>
