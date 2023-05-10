@@ -9,6 +9,7 @@ interface Props {
   onClick?: () => void;
   className?: string;
   url?: string;
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -18,11 +19,12 @@ const Button = ({
   variant,
   url,
   icon,
+  disabled,
 }: Props) => {
   const styles = `${variants[variant]} ${className} ${
     icon ? 'p-[6px] w-fit border-[1px] rounded-[8px]' : 'px-6 py-3 w-full'
-  }
-  border-[1px] italic font-bold text-center whitespace-nowrap transition rounded font-monospace`;
+  } ${disabled ? 'opacity-30' : variants[`${variant}-hover`]}
+  border- italic font-bold text-center whitespace-nowrap transition rounded font-monospace`;
 
   return (
     <>
@@ -37,7 +39,7 @@ const Button = ({
           {children}
         </a>
       ) : (
-        <button className={styles} onClick={onClick}>
+        <button className={styles} onClick={onClick} disabled={disabled}>
           {children}
         </button>
       )}

@@ -23,7 +23,7 @@ const Navbar = () => {
           <p className='cursor-pointer'>Blog</p>
         </div>
         <Button variant='secondary' className='flex tablet:hidden' icon>
-          <MdMenu className='duration-[0ms] w-[18px] h-[18px] fill-primary' />
+          <MdMenu className='duration-[0ms] w-[18px] h-[18px]' />
         </Button>
         <img
           src='./mlogolight.svg'
@@ -38,13 +38,13 @@ const Navbar = () => {
           <LangSelector />
           <Button variant='secondary' onClick={toggleTheme} icon>
             {theme === 'dark' ? (
-              <MdLightMode className='duration-[0ms] w-[18px] h-[18px] fill-primary' />
+              <MdLightMode className='duration-[0ms] w-[18px] h-[18px]' />
             ) : (
-              <MdDarkMode className='duration-[0ms] w-[18px] h-[18px] fill-primary' />
+              <MdDarkMode className='duration-[0ms] w-[18px] h-[18px]' />
             )}
           </Button>
-          <Button variant='secondary' onClick={toggleTheme} icon>
-            <MdKeyboardArrowUp className='duration-[0ms] w-[18px] h-[18px] fill-primary' />
+          <Button variant='secondary' onClick={toggleTheme} icon disabled>
+            <MdKeyboardArrowUp className='duration-[0ms] w-[18px] h-[18px] ' />
           </Button>
         </div>
       </div>
