@@ -1,6 +1,8 @@
-import { useAppSelector } from '@/hooks/store/useAppSelector';
 import React from 'react';
 import { MdArrowOutward } from 'react-icons/md';
+
+import { useAppSelector } from '@/hooks/store/useAppSelector';
+
 import ContentLayout from '../ContentLayout';
 import Icon from '../Icon';
 

@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { LOCALE_CODE } from '@/models/contentful/generated/contentful';
-import { useAppSelector } from '@/hooks/store/useAppSelector';
 import { MdArrowDropDown, MdArrowDropUp, MdLanguage } from 'react-icons/md';
+import { useRouter } from 'next/router';
+
+import { useAppSelector } from '@/hooks/store/useAppSelector';
+
+import { LOCALE_CODE } from '@/models/contentful/generated/contentful';
+
 import Button from '../Button';
 
 interface Lang {
@@ -13,10 +16,10 @@ interface Lang {
 }
 
 const LangSelector = () => {
+  const data = useAppSelector((state) => state.pageContent);
+
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-
-  const data = useAppSelector((state) => state.pageContent);
 
   const langsList: Array<Lang> = [
     {

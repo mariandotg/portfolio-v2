@@ -9,6 +9,10 @@ import Article from '@/public/article.svg';
 import Mail from '@/public/mail.svg';
 import Default from '@/public/default.svg';
 
+interface Props {
+  emoji?: string;
+}
+
 const emojis: Emojis = {
   pin: Pin,
   dart: Dart,
@@ -17,10 +21,6 @@ const emojis: Emojis = {
   mail: Mail,
   default: Default,
 };
-
-interface Props {
-  emoji?: string;
-}
 
 const Emoji = ({ emoji }: Props) => {
   const SelectedEmoji = emojis[emoji || 'default'];

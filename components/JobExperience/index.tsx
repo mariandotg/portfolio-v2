@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 import { useAppSelector } from '@/hooks/store/useAppSelector';
 
+import { JobCard } from '@/models/domain/JobCards';
+
 import Section from '../Section';
 import SectionTitle from '../Section/SectionTitle';
-import { JobCard } from '@/models/domain/JobCards';
 
 const JobExperience = () => {
   const data = useAppSelector(

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 
 import { useAppSelector } from '@/hooks/store/useAppSelector';
 
+import { Project } from '@/models/domain/Project';
+
 import Section from '../Section';
 import ProjectCard from '../ProjectCard';
 import SectionTitle from '../Section/SectionTitle';
-import { Project } from '@/models/domain/Project';
 
 const FeaturedProjects = () => {
   const data = useAppSelector(

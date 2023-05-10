@@ -1,12 +1,14 @@
 import React from 'react';
-import Button from '../Button';
 import {
   MdLightMode,
   MdDarkMode,
   MdMenu,
   MdKeyboardArrowUp,
 } from 'react-icons/md';
+
 import useTheme from '@/hooks/useTheme';
+
+import Button from '../Button';
 import LangSelector from '../LangSelector';
 
 const Navbar = () => {

@@ -36,6 +36,11 @@ interface Icons {
   [key: string]: any;
 }
 
+interface Props {
+  value: string;
+  className?: string;
+}
+
 const icons: Icons = {
   es6: SiJavascript,
   'adobe illustrator': SiAdobeillustrator,
@@ -73,11 +78,6 @@ const icons: Icons = {
   'other tools': MdBuild,
   default: SiReact,
 };
-
-interface Props {
-  value: string;
-  className?: string;
-}
 
 const Icon = ({ value, className }: Props) => {
   const SelectedIcon = icons[value] || icons.default;
