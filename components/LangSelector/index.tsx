@@ -59,7 +59,11 @@ const LangSelector = () => {
       >
         <MdLanguage className='w-[18px] h-[18px]' />
         {currentLanguage!.label[data.locale]}
-        {!isOpen ? <MdArrowDropDown /> : <MdArrowDropUp />}
+        {!isOpen ? (
+          <MdArrowDropDown className='w-[18px] h-[18px]' />
+        ) : (
+          <MdArrowDropUp className='w-[18px] h-[18px]' />
+        )}
       </Button>
       <div className='relative w-full text-light-headlines dark:text-dark-headlines'>
         {isOpen && (
