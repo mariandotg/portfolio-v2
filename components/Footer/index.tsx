@@ -5,6 +5,7 @@ import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 import ContentLayout from '../ContentLayout';
 import Icon from '../Icon';
+import Navlink from '../Navbar/Navlink';
 
 const Footer = () => {
   const data = useAppSelector((state) => state.pageConstants.constants);
@@ -12,19 +13,26 @@ const Footer = () => {
   return (
     <footer className='w-full flex flex-col gap-y-16 px-4 py-8 border-t-[1px] border-primary'>
       <ContentLayout>
-        <div>
-          <h3 className='font-medium text-title font-display dark:text-dark-headlines text-light-headlines'>
-            {data.text.ctaEmail.text}
-          </h3>
-          <a
-            href={data.text.email.url}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='flex relative w-fit before:content-[""] before:h-[1px] before:w-full before:left-0 before:bottom-1 before:absolute before:bg-primary items-center font-medium gap-x-1 text-title font-display text-primary'
-          >
-            {data.text.email.text}
-            <MdArrowOutward />
-          </a>
+        <div className='grid grid-cols-3 gap-8'>
+          <div className='col-span-1 row-span-2 text-title'>
+            <h3 className='font-medium whitespace-nowrap font-display dark:text-dark-headlines text-light-headlines'>
+              {data.text.ctaEmail.text}
+            </h3>
+            <a
+              href={data.text.email.url}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex relative w-fit before:content-[""] before:h-[1px] before:w-full before:left-0 before:bottom-1 before:absolute before:bg-primary items-center font-medium gap-x-1 font-display text-primary'
+            >
+              {data.text.email.text}
+              <MdArrowOutward />
+            </a>
+          </div>
+          <div className='flex flex-col col-span-1 col-start-3 row-span-2 gap-y-4'>
+            <Navlink href='/'>Portfolio</Navlink>
+            <Navlink href='/projects'>Proyectos</Navlink>
+            <Navlink href='/blog'>Blog</Navlink>
+          </div>
         </div>
         {/* <ul className='grid grid-cols-2 gap-4 text-light-text dark:text-dark-text'>
           <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
