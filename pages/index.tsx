@@ -16,6 +16,7 @@ import JobExperience from '@/components/JobExperience';
 import Footer from '@/components/Footer';
 import ContentLayout from '@/components/ContentLayout';
 import Navbar from '@/components/Navbar';
+import LatestArticles from '@/components/LatestArticles';
 
 const Home: NextPage = () => {
   return (
@@ -33,6 +34,7 @@ const Home: NextPage = () => {
           <FeaturedProjects />
           <Skills />
           <JobExperience />
+          <LatestArticles />
         </ContentLayout>
       </div>
       <Footer />
