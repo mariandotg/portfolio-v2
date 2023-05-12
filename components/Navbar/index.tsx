@@ -22,6 +22,13 @@ const Navbar = () => {
 
   return (
     <nav className='border-b-[1px] border-primary bg-light/80 z-[9999] dark:bg-dark/70 backdrop-saturate-200 fixed top-0 flex justify-center w-full px-4 py-3 backdrop-blur'>
+      <div className='absolute top-0 flex justify-center w-full h-[57px]'>
+        <img
+          src='./mlogolight.svg'
+          className='hidden tablet:dark:flex tablet:flex tablet:dark:brightness-[200] w-[164px]'
+        />
+        <img src='./mdg_logo.svg' className='flex tablet:hidden w-[50px]' />
+      </div>
       <div className='flex items-center w-screen tablet:max-w-[800px] justify-between gap-16'>
         <div className='items-center hidden gap-4 tablet:flex dark:text-light'>
           <Navlink href='/'>Portfolio</Navlink>
@@ -31,11 +38,6 @@ const Navbar = () => {
         <Button variant='secondary' className='flex tablet:hidden' icon>
           <MdMenu className='duration-[0ms] w-[18px] h-[18px]' />
         </Button>
-        <img
-          src='./mlogolight.svg'
-          className='hidden tablet:dark:flex tablet:flex tablet:dark:brightness-[200] w-[164px]'
-        />
-        <img src='./mdg_logo.svg' className='flex tablet:hidden w-[50px]' />
         <div className='flex items-center gap-2'>
           <LangSelector />
           <Button
