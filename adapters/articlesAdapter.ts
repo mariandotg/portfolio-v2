@@ -24,6 +24,12 @@ export const articlesFilter: CompoundFilterObj = {
       },
     },
     {
+      property: 'LatestArticle',
+      checkbox: {
+        equals: true,
+      },
+    },
+    {
       property: 'Database',
       select: {
         equals: 'Articles Database',
