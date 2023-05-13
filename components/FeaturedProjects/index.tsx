@@ -39,7 +39,7 @@ const FeaturedProjects = () => {
         ))}
       </div>
       <div className='relative hidden w-full h-full tablet:flex tablet:col-span-2 tablet:row-span-1'>
-        <div className='absolute bottom-0 z-10 w-full p-4 h-1/5 dark:text-dark dark:bg-gradient-to-t from-light/75 to-transparent'>
+        <div className='absolute bottom-0 z-10 w-full p-4 rounded h-1/5 dark:text-dark dark:bg-gradient-to-t from-light/75 to-transparent'>
           <h4 className='font-medium text-title'>{currentProject?.name}</h4>
           <p className='text'>{currentProject?.description}</p>
         </div>
