@@ -42,7 +42,7 @@ const About = () => {
           {data.content.description.text}
         </p>
       </div>
-      <div className='flex flex-col gap-4 tablet:col-start-2 tablet:gap-8 tablet:col-span-2 tablet:grid tablet:grid-cols-2'>
+      <div className='flex flex-col gap-4 tablet:col-start-2 tablet:gap-8 mobile:col-span-2 mobile:grid mobile:grid-cols-2'>
         <Button
           variant={data.content.secondaryCta.variant}
           url={data.content.secondaryCta.url}

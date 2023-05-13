@@ -10,7 +10,6 @@ interface Props {
   project: Project;
   currentProject: Project;
   onHover: (project: Project) => void;
-  // animate: (opt: boolean) => void;
 }
 
 const ProjectCard = (props: Props) => {
@@ -98,9 +97,7 @@ const ProjectCard = (props: Props) => {
       props.onHover(props.project);
     }
   }
-  console.log(props.project.name);
-  console.log(props.project.tags.length);
-  console.log(numMaxTags);
+
   return (
     <div
       className={`flex flex-col tablet:col-span-1 ${
@@ -113,7 +110,7 @@ const ProjectCard = (props: Props) => {
       <div className='flex flex-col gap-y-2'>
         <img
           src={props.project.image}
-          className='tablet:hidden object-cover w-full rounded-t h-[187px] flex'
+          className='tablet:hidden object-cover w-full rounded h-[135px] mobile:h-[100px] flex'
         />
         <div className='flex flex-col gap-y-1'>
           <h3 className='flex items-center font-medium whitespace-nowrap text-title group-hover:gap-x-2 gap-x-1 font-display dark:text-dark-headlines text-light-headlines'>

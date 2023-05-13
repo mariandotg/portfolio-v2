@@ -28,14 +28,13 @@ const FeaturedProjects = () => {
       >
         {data.title}
       </SectionTitle>
-      <div className='flex flex-col gap-y-8 tablet:col-span-1 tablet:grid tablet:grid-cols-1 tablet:gap-0'>
+      <div className='flex flex-col gap-y-8 mobile:grid mobile:grid-cols-2 mobile:gap-4 tablet:col-span-1 tablet:grid-cols-1 tablet:gap-0'>
         {data.content.projects.map((project) => (
           <ProjectCard
             key={project.id}
             project={project}
             currentProject={currentProject}
             onHover={(project) => setCurrentProject(project)}
-            /* animate={(opt) => setIsAnimating(opt)} */
           />
         ))}
       </div>

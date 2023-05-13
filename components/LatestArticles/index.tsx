@@ -9,7 +9,7 @@ const LatestArticles = () => {
   const data = useAppSelector(
     (state) => state.pageContent.sections.latestArticles
   );
-  // overflow-x-auto
+
   return (
     <Section>
       <SectionTitle
@@ -21,15 +21,15 @@ const LatestArticles = () => {
       >
         {data.title}
       </SectionTitle>
-      <div className='w-full snap-x tablet:col-span-3 snap-mandatory'>
-        <ul className='flex flex-row gap-4 tablet:gap-8 tablet:grid tablet:grid-cols-3'>
+      <div className='flex w-full snap-x tablet:col-span-3 snap-mandatory'>
+        <ul className='flex flex-col w-full gap-4 mobile:grid mobile:grid-cols-2 mobile:flex-row tablet:gap-8 tablet:grid tablet:grid-cols-3'>
           {data.content.articles.map((article) => (
             <li
               key={article.id}
               className='flex flex-col cursor-pointer group tablet:col-span-1 snap-center gap-y-1'
             >
               <span className='text-light-text text'>{article.date.start}</span>
-              <div className='relative flex w-full overflow-hidden rounded'>
+              <div className='relative flex w-full overflow-hidden h-[135px] mobile:h-[100px] rounded'>
                 <img
                   src={article.image}
                   className='top-0 left-0 object-cover w-full h-full rounded group-hover:scale-110 aspect-video'

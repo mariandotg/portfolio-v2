@@ -16,7 +16,7 @@ const Skills = () => {
       <p className='text text-light-text dark:text-dark-text'>
         {data.content.skillsDescription.text}
       </p>
-      <div className='flex flex-col gap-y-4 tablet:grid tablet:grid-cols-2 tablet:gap-8 tablet:col-span-2'>
+      <div className='flex flex-col gap-4 mobile:grid mobile:grid-cols-2 tablet:gap-8 tablet:col-span-2'>
         {data.content.skillCards.map((skillCard) => {
           return (
             <div
