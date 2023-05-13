@@ -13,7 +13,11 @@ interface Props {
 const SectionTitle = ({ children, button, emoji }: Props) => {
   return (
     <div className='flex justify-between tablet:col-span-3'>
-      <h2 className='flex italic font-medium items-center after:content-[""] after:h-[1px] after:grow pr-4 w-full after:bg-primary dark:text-dark-headlines gap-x-4 font-monospace text-light-headlines'>
+      <h2
+        className={`flex italic font-medium items-center after:content-[""] after:h-[1px] after:grow ${
+          button && 'pr-4'
+        } w-full after:bg-primary dark:text-dark-headlines gap-x-4 font-monospace text-light-headlines`}
+      >
         <Emoji emoji={emoji} />
         {children}
       </h2>

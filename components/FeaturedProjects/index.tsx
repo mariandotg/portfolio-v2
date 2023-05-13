@@ -45,7 +45,7 @@ const FeaturedProjects = () => {
         </div>
         <img
           src={currentProject?.image}
-          className={`absolute object-cover rounded w-full h-full aspect-square`}
+          className='absolute object-cover w-full h-full rounded aspect-square'
           alt={currentProject ? currentProject.name : 'alt'}
         />
       </div>
