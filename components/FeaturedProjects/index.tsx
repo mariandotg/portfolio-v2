@@ -19,7 +19,15 @@ const FeaturedProjects = () => {
 
   return (
     <Section>
-      <SectionTitle>{data.title}</SectionTitle>
+      <SectionTitle
+        button={{
+          label: 'See all my projects',
+          variant: 'secondary',
+        }}
+        emoji={data.emoji}
+      >
+        {data.title}
+      </SectionTitle>
       <div className='flex flex-col gap-y-8 tablet:col-span-1 tablet:grid tablet:grid-cols-1 tablet:gap-0'>
         {data.content.projects.map((project) => (
           <ProjectCard

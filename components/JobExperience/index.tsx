@@ -18,7 +18,7 @@ const JobExperience = () => {
 
   return (
     <Section>
-      <SectionTitle>{data.title}</SectionTitle>
+      <SectionTitle emoji={data.emoji}>{data.title}</SectionTitle>
       <div className='flex flex-col gap-y-8 relative tablet:col-span-1 tablet:gap-0 border-l-[1px] border-primary tablet:border-none tablet:after:top-0 tablet:after:-right-[16px] tablet:after:content-[""] tablet:after:h-full tablet:after:w-[1px] tablet:after:absolute tablet:after:bg-primary '>
         {data.content.jobCards.map((jobCard) => {
           return (

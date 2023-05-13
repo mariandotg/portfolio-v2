@@ -12,7 +12,7 @@ const Skills = () => {
 
   return (
     <Section>
-      <SectionTitle>{data.title}</SectionTitle>
+      <SectionTitle emoji={data.emoji}>{data.title}</SectionTitle>
       <p className='text text-light-text dark:text-dark-text'>
         {data.content.skillsDescription.text}
       </p>
