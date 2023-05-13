@@ -9,12 +9,12 @@ import Navlink from '../Navbar/Navlink';
 
 const Footer = () => {
   const data = useAppSelector((state) => state.pageConstants.constants);
-  console.log(data);
+
   return (
-    <footer className='w-full flex flex-col gap-y-16 px-4 py-8 border-t-[1px] border-primary'>
+    <footer className='w-full flex flex-col gap-y-16 py-8 border-t-[1px] border-primary'>
       <ContentLayout>
-        <div className='grid grid-cols-3 gap-8'>
-          <div className='col-span-1 row-span-2 text-title'>
+        <div className='grid grid-cols-1 gap-8 mobile:grid-cols-3'>
+          <div className='col-span-1 text-title'>
             <h3 className='font-medium whitespace-nowrap font-display dark:text-dark-headlines text-light-headlines'>
               {data.text.ctaEmail.text}
             </h3>
@@ -28,41 +28,36 @@ const Footer = () => {
               <MdArrowOutward />
             </a>
           </div>
-          <div className='flex flex-col col-span-1 col-start-3 row-span-2 gap-y-4'>
+          <div className='grid grid-cols-2 col-span-1 mobile:flex mobile:flex-col mobile:col-start-3 gap-y-4'>
             <Navlink href='/'>Portfolio</Navlink>
             <Navlink href='/projects'>Proyectos</Navlink>
             <Navlink href='/blog'>Blog</Navlink>
           </div>
         </div>
-        {/* <ul className='grid grid-cols-2 gap-4 text-light-text dark:text-dark-text'>
-          <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
-            Home
-          </li>
-          <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
-            Blogs
-          </li>
-          <li className='cursor-pointer hover:text-primary dark:hover:text-primary'>
-            Projects
-          </li>
-  </ul> */}
-        <ul className='flex gap-4 text-light-text dark:text-dark-text'>
-          {data.social.map((social) => {
-            return (
-              <a
-                key={social.id}
-                href={social.url}
-                target='_blank'
-                rel='noopener noreferrer'
-                aria-label={social.alt}
-              >
-                <Icon
-                  value={social.icon.toLocaleLowerCase()}
-                  className='duration-[0ms] fill-light-text dark:fill-dark-text hover:fill-primary dark:hover:fill-primary'
-                />
-              </a>
-            );
-          })}
-        </ul>
+        <div className='flex flex-col items-center gap-y-8'>
+          <ul className='flex justify-center w-full gap-4 text-light-text dark:text-dark-text'>
+            {data.social.map((social) => {
+              return (
+                <a
+                  key={social.id}
+                  href={social.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={social.alt}
+                >
+                  <Icon
+                    value={social.icon.toLocaleLowerCase()}
+                    className='duration-[0ms] fill-light-text dark:fill-dark-text hover:fill-primary dark:hover:fill-primary'
+                  />
+                </a>
+              );
+            })}
+          </ul>
+          <div className='flex flex-col items-center w-full italic gap-y-2 text font-monospace text-light-text dark:text-dark-text-light-text'>
+            <p>Made in Buenos Aires, Argentina</p>
+            <span>2023 © Mariano Guillaume</span>
+          </div>
+        </div>
       </ContentLayout>
     </footer>
   );
