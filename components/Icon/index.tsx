@@ -1,5 +1,11 @@
 import { DiJava } from 'react-icons/di';
-import { MdBuild, MdCode, MdOutlineScience, MdSettings } from 'react-icons/md';
+import {
+  MdBuild,
+  MdCode,
+  MdMail,
+  MdOutlineScience,
+  MdSettings,
+} from 'react-icons/md';
 import {
   SiJavascript,
   SiAdobeillustrator,
@@ -30,6 +36,11 @@ import {
   SiMongodb,
   SiGithub,
   SiLinkedin,
+  SiTwitter,
+  SiYoutube,
+  SiMedium,
+  SiInstagram,
+  SiTiktok,
 } from 'react-icons/si';
 
 interface Icons {
@@ -54,11 +65,14 @@ const icons: Icons = {
   git: SiGit,
   github: SiGithub,
   html5: SiHtml5,
+  instagram: SiInstagram,
   java: DiJava,
   jest: SiJest,
   kotlin: SiKotlin,
   linkedin: SiLinkedin,
   mongodb: SiMongodb,
+  medium: SiMedium,
+  mail: MdMail,
   'next.js': SiNextdotjs,
   node: SiNodedotjs,
   npm: SiNpm,
@@ -75,7 +89,10 @@ const icons: Icons = {
   'front end': MdCode,
   'back end': MdSettings,
   testing: MdOutlineScience,
+  twitter: SiTwitter,
+  tiktok: SiTiktok,
   'other tools': MdBuild,
+  youtube: SiYoutube,
   default: SiReact,
 };
 

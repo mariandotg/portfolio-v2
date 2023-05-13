@@ -4,9 +4,13 @@ import { useAppSelector } from '@/hooks/store/useAppSelector';
 
 import Section from '../Section';
 import Button from '../Button';
+import Icon from '../Icon';
 
 const About = () => {
   const data = useAppSelector((state) => state.pageContent.sections.about);
+  const socialMedia = useAppSelector(
+    (state) => state.pageConstants.constants.social
+  );
 
   return (
     <Section>
@@ -15,6 +19,24 @@ const About = () => {
           <h1 className='flex italic font-medium text-section-title text-light-headlines dark:text-dark-headlines font-monospace'>
             {data.title}
           </h1>
+          <div className='flex gap-x-4'>
+            {socialMedia.map((social) => {
+              return (
+                <a
+                  key={social.id}
+                  href={social.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={social.alt}
+                >
+                  <Icon
+                    value={social.icon.toLocaleLowerCase()}
+                    className='duration-[0ms] fill-light-text dark:fill-dark-text hover:fill-primary dark:hover:fill-primary'
+                  />
+                </a>
+              );
+            })}
+          </div>
         </div>
         <p className='font-display text text-light-text dark:text-dark-text'>
           {data.content.description.text}
