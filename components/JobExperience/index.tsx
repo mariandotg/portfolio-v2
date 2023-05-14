@@ -25,14 +25,14 @@ const JobExperience = () => {
             <div
               key={jobCard.id}
               id='this'
-              className='relative flex flex-col pl-4 gap-y-2 tablet:grid tablet:grid-cols-1 tablet:pl-0 tablet:gap-8'
+              className='relative flex flex-col pl-4 tablet:grid gap-y-2 tablet:grid-cols-1 tablet:pl-0 tablet:gap-8'
             >
               <div
                 onClick={() => setDisplayedJob(jobCard)}
                 className='tablet:col-span-1'
               >
                 <span
-                  className={`tablet:cursor-pointer flex tablet:p-4 rounded tablet:border  ${
+                  className={`tablet:cursor-pointer text-secondary flex tablet:p-4 rounded tablet:border  ${
                     jobCard.id === displayedJob.id
                       ? 'bg-light-primary-hover/10 dark:bg-dark-primary-hover/10 dark:border-primary border-primary dark:text-dark-text text-light-text'
                       : 'hover:bg-light-headlines/5 dark:hover:bg-dark-headlines/5 tablet:border-transparent dark:hover:text-dark-text hover:text-light-text dark:border-transparent border-transparent tablet:hover:border-light-headlines/25 tablet:dark:hover:border-dark-headlines/25'
@@ -42,13 +42,15 @@ const JobExperience = () => {
                 </span>
               </div>
               <div className='flex tablet:hidden tablet:pb-8 tablet:border-none tablet:relative flex-col gap-y-2 tablet:col-span-2 before:content-[""] before:rounded before:w-[7px] before:h-[7px] before:bg-primary before:absolute before:top-1 before:right-auto tablet:before:-left-5 before:-left-1'>
-                <h3 className='flex font-medium gap-x-4 dark:text-dark-headlines text-title font-display text-light-headlines'>
-                  {jobCard.position}
-                  <span className='font-light text-light-text dark:text-dark-text'>
+                <div>
+                  <span className='italic font-medium underline underline-offset-2 text font-monospace text-light-text dark:text-dark-text'>
                     {jobCard.company}
                   </span>
-                </h3>
-                <p className='text text-light-text dark:text-dark-text'>
+                  <h3 className='flex font-medium text-title gap-x-4 dark:text-dark-headlines font-display text-light-headlines'>
+                    {jobCard.position}
+                  </h3>
+                </div>
+                <p className='text-secondary text-light-text dark:text-dark-text'>
                   {jobCard.responsabilities}
                 </p>
               </div>
@@ -60,13 +62,15 @@ const JobExperience = () => {
         <div
           className={`h-[260px] hidden tablet:flex tablet:pb-8 tablet:border-none flex-col gap-y-2 tablet:col-span-2`}
         >
-          <h3 className='flex font-medium gap-x-4 dark:text-dark-headlines text-title font-display text-light-headlines'>
-            {displayedJob.position}
-            <span className='font-light text-light-text dark:text-dark-text'>
+          <div>
+            <span className='italic font-medium underline underline-offset-2 text font-monospace text-light-text dark:text-dark-text'>
               {displayedJob.company}
             </span>
-          </h3>
-          <p className='text text-light-text dark:text-dark-text'>
+            <h3 className='flex font-medium text-title gap-x-4 dark:text-dark-headlines font-display text-light-headlines'>
+              {displayedJob.position}
+            </h3>
+          </div>
+          <p className='text-secondary text-light-text dark:text-dark-text'>
             {displayedJob.responsabilities}
           </p>
         </div>

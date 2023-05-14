@@ -14,9 +14,9 @@ const states = {
 };
 
 export const variants = {
-  primary: `bg-primary border-transparent text-light`,
+  primary: `bg-primary border-transparent font-bold text-light`,
   'primary-hover': states.primary.hover,
-  secondary: `bg-transparent border-primary text-primary`,
+  secondary: `bg-transparent border-primary underline underline-offset-2 font-bold text-primary`,
   'secondary-hover': states.secondary.hover,
   tertiary: `bg-tertiary border-transparent text-light`,
   'tertiary-hover': states.tertiary.hover,

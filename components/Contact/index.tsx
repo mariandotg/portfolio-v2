@@ -7,10 +7,10 @@ import Emoji from '../Emoji';
 
 const Contact = () => {
   const data = useAppSelector((state) => state.pageContent.sections.contact);
-  console.log(data);
+
   return (
     <Section>
-      <h2 className='flex italic font-medium gap-x-4 text-section-title font-monospace text-light-headlines dark:text-dark-headlines'>
+      <h2 className='flex italic font-medium gap-x-4 text-title font-monospace text-light-headlines dark:text-dark-headlines'>
         <Emoji emoji={data.emoji} />
         {data.title}
       </h2>

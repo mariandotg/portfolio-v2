@@ -10,7 +10,7 @@ interface Props {
 const SkillItem = ({ skill, illuminate }: Props) => {
   return (
     <span
-      className={`relative whitespace-nowrap flex text ${
+      className={`relative whitespace-nowrap flex text-secondary ${
         illuminate &&
         'hover:after:bg-primary/40 hover:after:brightness-150 hover:after:blur-[8px] hover:after:content-[""] hover:after:absolute hover:after:h-[12px] hover:after:w-[12px] hover:after:z-[999]'
       } items-center text-light-text dark:text-dark-text group/item gap-x-2`}

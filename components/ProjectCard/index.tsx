@@ -117,7 +117,7 @@ const ProjectCard = (props: Props) => {
             {props.project.name}
             <MdArrowForward className='duration-[0ms] dark:text-dark-headlines text-light-headlines' />
           </h3>
-          <p className='text'>
+          <p className='text-secondary'>
             {truncateString(props.project.description, 27)}
           </p>
         </div>

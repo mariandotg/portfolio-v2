@@ -16,7 +16,7 @@ const About = () => {
     <Section>
       <div className='flex flex-col col-span-3 gap-y-4'>
         <div className='flex flex-col gap-y-2'>
-          <h1 className='flex italic font-medium text-section-title text-light-headlines dark:text-dark-headlines font-monospace'>
+          <h1 className='flex italic font-medium text-title text-light-headlines dark:text-dark-headlines font-monospace'>
             {data.title}
           </h1>
           <div className='flex gap-x-4'>
@@ -38,7 +38,7 @@ const About = () => {
             })}
           </div>
         </div>
-        <p className='font-display text text-light-text dark:text-dark-text'>
+        <p className='font-display text-secondary text-light-text dark:text-dark-text'>
           {data.content.description.text}
         </p>
       </div>

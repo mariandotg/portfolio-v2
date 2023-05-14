@@ -13,17 +13,17 @@ const Skills = () => {
   return (
     <Section>
       <SectionTitle emoji={data.emoji}>{data.title}</SectionTitle>
-      <p className='text text-light-text dark:text-dark-text'>
+      <p className='text-secondary text-light-text dark:text-dark-text'>
         {data.content.skillsDescription.text}
       </p>
-      <div className='flex flex-col gap-4 mobile:grid mobile:grid-cols-2 tablet:gap-8 tablet:col-span-2'>
+      <div className='relative flex flex-col w-full gap-4 mobile:grid mobile:grid-cols-2 tablet:gap-8 tablet:col-span-2 '>
         {data.content.skillCards.map((skillCard) => {
           return (
             <div
               key={skillCard.id}
-              className='flex flex-col gap-y-2 tablet:col-span-1'
+              className='flex flex-col border rounded gap-y-2 tablet:col-span-1 mobile:p-4 dark:border-dark-tertiary-hover border-light-tertiary-hover'
             >
-              <h3 className='flex items-center font-medium gap-x-2 text-title dark:text-dark-headlines font-display text-light-headlines'>
+              <h3 className='flex items-center font-medium gap-x-2 dark:text-dark-headlines text-title text-light-headlines'>
                 <Icon
                   value={skillCard.title.toLocaleLowerCase()}
                   className='duration-[0ms] dark:text-dark-headlines text-light-headlines'
