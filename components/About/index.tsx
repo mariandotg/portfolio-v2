@@ -23,18 +23,19 @@ const About = () => {
           <div className='flex gap-x-4'>
             {socialMedia.map((social) => {
               return (
-                <a
-                  key={social.id}
-                  href={social.url}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  aria-label={social.alt}
-                >
-                  <Icon
-                    value={social.icon.toLocaleLowerCase()}
-                    className='duration-[0ms] fill-light-text dark:fill-dark-text hover:fill-primary dark:hover:fill-primary'
-                  />
-                </a>
+                <li key={social.id} className='flex'>
+                  <a
+                    href={social.url}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label={social.alt}
+                  >
+                    <Icon
+                      value={social.icon.toLocaleLowerCase()}
+                      className='duration-[0ms] fill-light-text dark:fill-dark-text hover:fill-primary dark:hover:fill-primary'
+                    />
+                  </a>
+                </li>
               );
             })}
           </div>
