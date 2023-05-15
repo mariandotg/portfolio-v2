@@ -26,7 +26,7 @@ const Button = ({
   } ${
     disabled ? 'opacity-30 pointer-events-none' : variants[`${variant}-hover`]
   }
-  border italic text-center text-secondary whitespace-nowrap transition rounded font-monospace`;
+  border italic text-center flex items-center justify-center gap-2 text-secondary whitespace-nowrap transition rounded font-monospace`;
 
   return (
     <>

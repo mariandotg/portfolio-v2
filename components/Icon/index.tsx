@@ -54,8 +54,8 @@ interface Props {
 
 const icons: Icons = {
   es6: SiJavascript,
-  'adobe illustrator': SiAdobeillustrator,
-  'adobe photoshop': SiAdobephotoshop,
+  illustrator: SiAdobeillustrator,
+  photoshop: SiAdobephotoshop,
   bootstrap: SiBootstrap,
   contentful: SiContentful,
   css3: SiCss3,

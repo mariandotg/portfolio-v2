@@ -29,7 +29,8 @@ module.exports = {
     },
     fontSize: {
       DEFAULT: ['1rem', '1.5rem'],
-      secondary: ['0.875rem', '1.125rem'],
+      article: ['1rem', '1.175rem'],
+      secondary: ['0.875rem', '0.875rem'],
       title: ['1.25rem', '1.75rem'],
     },
     screens: {

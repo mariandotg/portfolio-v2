@@ -40,7 +40,9 @@ const Navbar = () => {
           <MdMenu className='duration-[0ms] w-[18px] h-[18px]' />
         </Button>
         <div className='relative flex items-center gap-2'>
-          <LangSelector />
+          <div className='hidden mobile:flex'>
+            <LangSelector />
+          </div>
           <Button
             variant='secondary'
             onClick={toggleTheme}

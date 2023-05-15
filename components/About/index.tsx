@@ -5,6 +5,7 @@ import { useAppSelector } from '@/hooks/store/useAppSelector';
 import Section from '../Section';
 import Button from '../Button';
 import Icon from '../Icon';
+import { MdArrowOutward } from 'react-icons/md';
 
 const About = () => {
   const data = useAppSelector((state) => state.pageContent.sections.about);
@@ -38,17 +39,18 @@ const About = () => {
             })}
           </div>
         </div>
-        <p className='font-display text-secondary text-light-text dark:text-dark-text'>
+        <p className='font-display text text-light-text dark:text-dark-text'>
           {data.content.description.text}
         </p>
       </div>
-      <div className='flex flex-col gap-4 tablet:col-start-2 tablet:gap-8 mobile:col-span-2 mobile:grid mobile:grid-cols-2'>
+      <div className='flex flex-col gap-4 tablet:col-start-2 tablet:gap-4 mobile:col-span-2 mobile:grid mobile:grid-cols-2'>
         <Button
           variant={data.content.secondaryCta.variant}
           url={data.content.secondaryCta.url}
           className='tablet:col-span-1'
         >
           {data.content.secondaryCta.label}
+          <MdArrowOutward />
         </Button>
         <Button
           variant={data.content.cta.variant}
@@ -56,6 +58,7 @@ const About = () => {
           className='tablet:col-span-1'
         >
           {data.content.cta.label}
+          <Icon value='mail' />
         </Button>
       </div>
     </Section>
