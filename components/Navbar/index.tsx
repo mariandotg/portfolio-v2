@@ -14,6 +14,7 @@ import useIsMounted from '@/hooks/useIsMounted';
 import Button from '../Button';
 import LangSelector from '../LangSelector';
 import Navlink from './Navlink';
+import Image from 'next/image';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -28,13 +29,19 @@ const Navbar = () => {
           <Navlink href='/projects'>Proyectos</Navlink>
           <Navlink href='/blog'>Blog</Navlink>
         </div>
-        <img
-          src='./mlogolight.svg'
+        <Image
+          src='/mlogolight.svg'
+          alt='brand marianoGuillaume logo'
           className='absolute left-2/4 -translate-x-1/2 hidden tablet:dark:flex tablet:flex tablet:dark:brightness-[200] w-[164px]'
+          width={164}
+          height={14}
         />
-        <img
-          src='./mdg_logo.svg'
-          className='absolute left-2/4 -translate-x-1/2  flex tablet:hidden w-[50px]'
+        <Image
+          src='/mdg_logo.svg'
+          alt='brand mdg logo'
+          className='absolute flex -translate-x-1/2 left-2/4 tablet:hidden'
+          width={50}
+          height={23}
         />
         <Button variant='secondary' className='flex mobile:hidden' icon>
           <MdMenu className='duration-[0ms] w-[18px] h-[18px]' />

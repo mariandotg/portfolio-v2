@@ -5,6 +5,7 @@ import { Project } from '@/models/domain/Project';
 import { Tag } from '@/models/domain/Tag';
 
 import SkillItem from '../Skills/SkillItem';
+import Image from 'next/image';
 
 interface Props {
   project: Project;
@@ -112,10 +113,14 @@ const ProjectCard = (props: Props) => {
         } cursor-pointer justify-between tablet:col-span-1 border border-transparent gap-y-4 tablet:p-4 group rounded dark:text-dark-text text-light-text`}
       >
         <div className='flex flex-col gap-y-2'>
-          <img
-            src={props.project.image}
-            className='tablet:hidden object-cover w-full rounded h-[135px] mobile:h-[100px] flex'
-          />
+          <div className='relative w-full h-[135px] mobile:h-[100px] tablet:hidden'>
+            <Image
+              src={props.project.image}
+              alt={`${props.project.name} image`}
+              className='absolute flex object-cover w-full rounded tablet:hidden'
+              fill={true}
+            />
+          </div>
           <div className='flex flex-col gap-y-1'>
             <h3 className='flex items-center font-medium whitespace-nowrap text-title group-hover:gap-x-2 gap-x-1 font-display dark:text-dark-headlines text-light-headlines'>
               {props.project.name}
@@ -141,9 +146,11 @@ const ProjectCard = (props: Props) => {
         </div>
       </div>
       <div className='relative hidden rounded cursor-pointer mobile:col-span-1 tablet:col-span-2 group mobile:overflow-hidden tablet:flex'>
-        <img
+        <Image
           src={props.project.image}
-          className='absolute z-10 object-cover object-center w-full h-full aspect-square'
+          alt={`${props.project.name} image`}
+          className='absolute z-10 object-cover object-center aspect-square'
+          fill={true}
         />
       </div>
     </div>
