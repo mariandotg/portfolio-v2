@@ -10,9 +10,12 @@ const initialState: PageSeo = {
   title: '',
   description: '',
   image: '',
+  imageAlt: '',
   id: '',
   openGraphType: '',
+  schemaType: '',
   path: '',
+  url: '',
   slug: '',
   loading: true,
 };
