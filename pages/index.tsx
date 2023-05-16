@@ -84,6 +84,7 @@ const Home: NextPage = () => {
             alt='page header'
             className='absolute object-cover'
             fill={true}
+            priority
           />
         </div>
         <ContentLayout>
