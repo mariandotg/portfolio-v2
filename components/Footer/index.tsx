@@ -6,6 +6,7 @@ import { useAppSelector } from '@/hooks/store/useAppSelector';
 import ContentLayout from '../ContentLayout';
 import Icon from '../Icon';
 import Navlink from '../Navbar/Navlink';
+import Emoji from '../Emoji';
 
 const Footer = () => {
   const data = useAppSelector((state) => state.pageConstants.constants);
@@ -52,8 +53,11 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-          <div className='flex flex-col items-center w-full italic gap-y-2 font-monospace text-light-headlines dark:text-dark-headlines'>
-            <p className='text-secondary '>Made in Buenos Aires, Argentina</p>
+          <div className='flex flex-col items-center w-full italic h-fit gap-y-2 font-monospace text-light-headlines dark:text-dark-headlines'>
+            <p className='flex items-center gap-x-2 text-secondary'>
+              Made in Buenos Aires, Argentina
+              <Emoji emoji='argentina' width={24} height={17} />
+            </p>
             <span className='text-secondary '>2023 © Mariano Guillaume</span>
           </div>
         </div>

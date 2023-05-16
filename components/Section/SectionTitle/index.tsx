@@ -15,7 +15,7 @@ const SectionTitle = ({ children, button, emoji }: Props) => {
       <h2
         className={`flex italic font-medium items-center after:content-[""] after:h-[1px] after:grow w-full after:bg-primary dark:text-dark-headlines gap-x-4 font-monospace text-light-headlines`}
       >
-        <Emoji emoji={emoji} />
+        <Emoji emoji={emoji} width={20} height={20} />
         {children}
       </h2>
     </div>
