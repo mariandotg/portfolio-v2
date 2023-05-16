@@ -21,13 +21,13 @@ const LatestArticles = () => {
           label: 'See all my articles',
           variant: 'secondary',
         }}
-        emoji={data.emoji}
+        emoji={data?.emoji}
       >
-        {data.title}
+        {data?.title}
       </SectionTitle>
       <div className='flex w-full snap-x tablet:col-span-3'>
         <ul className='flex flex-col w-full gap-4 mobile:grid mobile:grid-cols-2 tablet:grid-cols-3'>
-          {data.content.articles.map((article, index) => (
+          {data?.content.articles.map((article, index) => (
             <li
               key={article.id}
               className={`cursor-pointer group ${

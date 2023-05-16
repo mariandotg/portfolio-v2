@@ -14,7 +14,7 @@ const FeaturedProjects = () => {
   );
 
   const [currentProject, setCurrentProject] = useState<Project>(
-    data.content.projects[0]
+    data?.content.projects[0]
   );
 
   return (
@@ -24,12 +24,12 @@ const FeaturedProjects = () => {
           label: 'See all my projects',
           variant: 'secondary',
         }}
-        emoji={data.emoji}
+        emoji={data?.emoji}
       >
-        {data.title}
+        {data?.title}
       </SectionTitle>
       <div className='flex flex-col gap-y-8 mobile:grid mobile:grid-cols-2 mobile:gap-4 tablet:col-span-3 tablet:grid-cols-3 tablet:grid-rows-3 tablet:gap-4'>
-        {data.content.projects.map((project, index) => (
+        {data?.content.projects.map((project, index) => (
           <ProjectCard
             key={project.id}
             project={project}

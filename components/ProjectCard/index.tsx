@@ -106,7 +106,8 @@ const ProjectCard = (props: Props) => {
       className={`${props.className} tablet:grid mobile:col-span-2 tablet:grid-cols-3 tablet:col-span-3 mobile:gap-4`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      href={`/projects/${props.project.path}`}
+      href='/projects/[path]'
+      as={`/projects/${props.project.path}`}
     >
       <div
         className={`flex flex-col tablet:col-span-1 ${

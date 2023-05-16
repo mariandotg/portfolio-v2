@@ -3,6 +3,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { fetchPageContent } from '../actions/pageContent/fetchPageContent';
 import { fetchNotionContent } from '../actions/pageContent/fetchNotionContent';
+import { fetchNotionSinglePage } from '../actions/pageContent/fetchNotionSinglePage';
 
 import { pageContentAdapter } from '@/adapters/pageContentAdapter';
 
@@ -14,7 +15,7 @@ const initialState: PageContent = {
   name: '',
   sections: {} as PageContentSections,
   loading: false,
-  locale: '',
+  locale: 'en',
 };
 
 export const pageContent = createSlice({
@@ -48,6 +49,18 @@ export const pageContent = createSlice({
         state.loading = false;
       })
       .addCase(fetchNotionContent.rejected, (state) => {
+        state.loading = false;
+      })
+      .addCase(fetchNotionSinglePage.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchNotionSinglePage.fulfilled, (state, action) => {
+        const { page } = action.payload;
+
+        state.sections.blog = page.markdown;
+        state.loading = false;
+      })
+      .addCase(fetchNotionSinglePage.rejected, (state) => {
         state.loading = false;
       })
       .addCase(HYDRATE, (state, action: ActionHYDRATE) => {

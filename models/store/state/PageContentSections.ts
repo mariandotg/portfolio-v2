@@ -15,4 +15,7 @@ export interface PageContentSections {
   jobExperience: FormattedSection<JobsContent>;
   latestArticles: FormattedSection<ArticlesContent>;
   contact: FormattedSection<ContactContent>;
+  blog: {
+    parent: string;
+  };
 }
