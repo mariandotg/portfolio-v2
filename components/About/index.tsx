@@ -20,7 +20,7 @@ const About = () => {
           <h1 className='flex italic font-medium text-title text-light-headlines dark:text-dark-headlines font-monospace'>
             {data.title}
           </h1>
-          <div className='flex gap-x-4'>
+          <ul className='flex gap-x-4'>
             {socialMedia.map((social) => (
               <li key={social.id} className='flex'>
                 <a
@@ -36,7 +36,7 @@ const About = () => {
                 </a>
               </li>
             ))}
-          </div>
+          </ul>
         </div>
         <p className='font-display text text-light-text dark:text-dark-text'>
           {data.content.description.text}
