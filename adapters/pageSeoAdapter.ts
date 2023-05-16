@@ -1,7 +1,6 @@
 import { PageSeo } from '@/models/store/state/PageSeo';
 
 export const pageSeoAdapter = (post: any): Omit<PageSeo, 'loading'> => {
-  console.log(post.properties.Description.rich_text);
   return {
     id: post.id,
     title: post.properties.SeoTitle.rich_text[0].plain_text,

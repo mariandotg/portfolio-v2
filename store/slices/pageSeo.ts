@@ -33,9 +33,12 @@ export const pageSeo = createSlice({
         state.title = action.payload.response.title;
         state.description = action.payload.response.description;
         state.image = action.payload.response.image;
+        state.imageAlt = action.payload.response.imageAlt;
         state.id = action.payload.response.id;
         state.openGraphType = action.payload.response.openGraphType;
+        state.schemaType = action.payload.response.schemaType;
         state.path = action.payload.response.path;
+        state.url = action.payload.response.url;
         state.slug = action.payload.response.slug;
         state.loading = false;
       })
@@ -47,9 +50,12 @@ export const pageSeo = createSlice({
         state.title = action.payload!.pageSeo.title;
         state.description = action.payload!.pageSeo.description;
         state.image = action.payload!.pageSeo.image;
+        state.imageAlt = action.payload!.pageSeo.imageAlt;
         state.id = action.payload!.pageSeo.id;
         state.openGraphType = action.payload!.pageSeo.openGraphType;
+        state.schemaType = action.payload!.pageSeo.schemaType;
         state.path = action.payload!.pageSeo.path;
+        state.url = action.payload!.pageSeo.url;
         state.slug = action.payload!.pageSeo.slug;
         state.loading = false;
       });
