@@ -10,6 +10,7 @@ interface Props {
   className?: string;
   url?: string;
   disabled?: boolean;
+  ariaLabel?: string;
 }
 
 const Button = ({
@@ -20,6 +21,7 @@ const Button = ({
   url,
   icon,
   disabled,
+  ariaLabel,
 }: Props) => {
   const styles = `${variants[variant]} ${className} ${
     icon ? 'p-[6px] w-fit rounded-[8px]' : 'px-6 py-3 w-full'
@@ -41,7 +43,12 @@ const Button = ({
           {children}
         </a>
       ) : (
-        <button className={styles} onClick={onClick} disabled={disabled}>
+        <button
+          className={styles}
+          onClick={onClick}
+          disabled={disabled}
+          aria-label={icon ? ariaLabel : undefined}
+        >
           {children}
         </button>
       )}

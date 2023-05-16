@@ -43,7 +43,12 @@ const Navbar = () => {
           width={50}
           height={23}
         />
-        <Button variant='secondary' className='flex mobile:hidden' icon>
+        <Button
+          variant='secondary'
+          className='flex mobile:hidden'
+          icon
+          ariaLabel='Hamburger menu'
+        >
           <MdMenu className='duration-[0ms] w-[18px] h-[18px]' />
         </Button>
         <div className='relative flex items-center gap-2'>
@@ -55,6 +60,7 @@ const Navbar = () => {
             onClick={toggleTheme}
             icon
             disabled={!isMounted}
+            ariaLabel='Change theme'
           >
             {isMounted ? (
               theme === 'dark' ? (
@@ -72,6 +78,7 @@ const Navbar = () => {
             className='flex'
             icon
             disabled={!visible}
+            ariaLabel='Scroll to the top'
           >
             <MdKeyboardArrowUp className='duration-[0ms] w-[18px] h-[18px] ' />
           </Button>
