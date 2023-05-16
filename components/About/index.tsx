@@ -21,23 +21,21 @@ const About = () => {
             {data.title}
           </h1>
           <div className='flex gap-x-4'>
-            {socialMedia.map((social) => {
-              return (
-                <li key={social.id} className='flex'>
-                  <a
-                    href={social.url}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    aria-label={social.alt}
-                  >
-                    <Icon
-                      value={social.icon.toLocaleLowerCase()}
-                      className='duration-[0ms] fill-light-text dark:fill-dark-text hover:fill-primary dark:hover:fill-primary'
-                    />
-                  </a>
-                </li>
-              );
-            })}
+            {socialMedia.map((social) => (
+              <li key={social.id} className='flex'>
+                <a
+                  href={social.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={social.alt}
+                >
+                  <Icon
+                    value={social.icon.toLocaleLowerCase()}
+                    className='duration-[0ms] fill-light-text dark:fill-dark-text hover:fill-primary dark:hover:fill-primary'
+                  />
+                </a>
+              </li>
+            ))}
           </div>
         </div>
         <p className='font-display text text-light-text dark:text-dark-text'>
