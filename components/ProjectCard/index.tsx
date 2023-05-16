@@ -6,6 +6,7 @@ import { Tag } from '@/models/domain/Tag';
 
 import SkillItem from '../Skills/SkillItem';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Props {
   project: Project;
@@ -101,10 +102,11 @@ const ProjectCard = (props: Props) => {
   }
 
   return (
-    <div
+    <Link
       className={`${props.className} tablet:grid mobile:col-span-2 tablet:grid-cols-3 tablet:col-span-3 mobile:gap-4`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      href={`/projects/${props.project.path}`}
     >
       <div
         className={`flex flex-col tablet:col-span-1 ${
@@ -153,7 +155,7 @@ const ProjectCard = (props: Props) => {
           fill={true}
         />
       </div>
-    </div>
+    </Link>
   );
 };
 

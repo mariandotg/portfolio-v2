@@ -7,6 +7,7 @@ export const articlesAdapter = (post: any[]): Array<Article> => {
   return post.map((p) => {
     return {
       id: p.id,
+      path: p.properties.SeoPath.formula.string,
       date: p.properties.Date.date,
       image: p.properties.Image.files[0].external.url,
       name: p.properties.Name.title[0].plain_text,
